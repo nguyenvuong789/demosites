@@ -6,42 +6,40 @@
   <title>Yen May Vintage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <div class="brand">
-        <div class="brand__name">Yen May Vintage</div>
-        <div class="brand__sub">Curated Y2K &amp; vintage in Da Nang</div>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <div class="brand">Yen May Vintage</div>
+        <div class="sub">Curated Y2K &amp; vintage in Da Nang</div>
       </div>
-      <nav class="nav">
+      <nav>
         <a href="#finds">New Finds</a>
         <a href="#edit">Shop the Edit</a>
         <a href="#reviews">Reviews</a>
         <a href="#visit">Visit Store</a>
       </nav>
-      <div class="actions">
-        <a class="pill pill--fill" href="#finds">Browse Finds</a>
-        <a class="pill" href="#visit">Message Us</a>
+      <div class="header-actions">
+        <a class="btn btn-fill" href="#reviews">Browse Finds</a>
+        <a class="btn" href="#visit">Message Us</a>
       </div>
     </header>
 
     <section class="hero">
-      <div class="hero__image"><img src="./assets/1779785895425_1852359121458858814_g6686314633954570304_1401b276884a81acdc00a57c58401f61.jpg" alt="Yen May Vintage customer bag" /></div>
-      <div class="hero__copy">
-        <div class="eyebrow">YEN MAY VINTAGE</div>
+      <div class="hero-img"><img src="../assets/1779785895425_1852359121458858814_g6686314633954570304_1401b276884a81acdc00a57c58401f61.jpg" alt="Hero" /></div>
+      <div class="hero-copy">
+        <p class="eyebrow">NEW MAY DROP</p>
         <h1>Not more clothes. Just the right piece.</h1>
-        <p class="hero__lead">Curated Y2K &amp; vintage pieces for people who care about shape, fabric, condition, and personal style.</p>
-        <p class="hero__body">Open daily 10:00–21:00 in Da Nang. Browse the edit, then come by and try pieces on in person.</p>
-        <div class="cta-row">
-          <a class="cta cta--fill" href="#visit">Get directions and visit</a>
-          <a class="cta" href="#reviews">See reviews</a>
+        <p class="lead">Curated Y2K &amp; vintage pieces for people who care about shape, fabric, condition, and personal style.</p>
+        <p class="body">Open daily 10:00–21:00 in Da Nang. Browse the edit, then come by and try pieces on in person.</p>
+        <div class="hero-actions">
+          <a class="btn btn-fill" href="#visit">Browse Finds</a>
+          <a class="btn" href="#visit">Get Directions</a>
         </div>
-        <div class="chips">
-          <span>Curated weekly</span><span>Try on in store</span><span>Open daily 10:00–21:00</span>
-        </div>
+        <div class="chips"><span>Curated weekly</span><span>Try on in store</span><span>Open daily 10:00–21:00</span></div>
       </div>
     </section>
 
@@ -49,94 +47,141 @@
       <div><strong>Curated weekly</strong><span>Selected, not thrift piles</span></div>
       <div><strong>Try on in store</strong><span>Easy fit check before buying</span></div>
       <div><strong>Open daily 10:00–21:00</strong><span>Easy to visit once you have the route</span></div>
-      <div><strong>Y2K &amp; vintage focus</strong><span>Shape, fabric, condition, taste</span></div>
+      <div><strong>Hidden bags room</strong><span>45/3 An Hai Dong 1, Son Tra</span></div>
     </section>
 
-    <section class="section finds" id="finds">
-      <div class="section__head">
-        <div class="eyebrow">ON THE RACK LATELY</div>
-        <h2>Fresh finds, edited for shape and mood.</h2>
-        <p>Stock changes fast. This page shows the feeling of the shop, not a full catalog.</p>
+    <section class="section light" id="finds">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">NEW PIECES</p>
+          <h2>Pieces worth slowing down for.</h2>
+        </div>
+        <p>Each item is chosen for its shape, feel, and the way it hangs on a real body.</p>
       </div>
-      <div class="find-grid">
-        <article><img src="./assets/1779785895461_1852359121458858814_g6686314633954570304_abf22265a0488a067afdc5e998d09598.jpg" alt="find 1" /><div><span>01</span><strong>Soft knits, tiny tops, clean basics.</strong></div></article>
-        <article><img src="./assets/1779785895476_1852359121458858814_g6686314633954570304_1980cafda7d4a85bfa59223a4ee3f9a9.jpg" alt="find 2" /><div><span>02</span><strong>Y2K silhouettes with attitude.</strong></div></article>
-        <article><img src="./assets/1779785895487_1852359121458858814_g6686314633954570304_f8cb46a3c34424bfa01f41f8c770d32d.jpg" alt="find 3" /><div><span>03</span><strong>Pieces picked for fabric and fit.</strong></div></article>
-        <article><img src="./assets/1779785895498_1852359121458858814_g6686314633954570304_89d5d5b1220ce9c93d110dfcb22a4fda.jpg" alt="find 4" /><div><span>04</span><strong>Small details worth trying on.</strong></div></article>
-      </div>
-    </section>
-
-    <section class="section why" id="edit">
-      <div class="section__head section__head--compact"><div class="eyebrow">WHY COME BY</div><h2>Small shop. Clear eye. Better try-on.</h2></div>
-      <div class="why-grid">
-        <article><span>01</span><strong>Not a pile</strong><p>Every hanger has to earn its place.</p></article>
-        <article><span>02</span><strong>Fit matters</strong><p>Try shape, length, fabric, and comfort.</p></article>
-        <article><span>03</span><strong>Real condition</strong><p>Check seams, fabric, color, and feel in person.</p></article>
-      </div>
-    </section>
-
-    <section class="section memories">
-      <div class="section__head">
-        <div class="eyebrow">REAL PEOPLE, REAL SHOP MOMENTS</div>
-        <h2>Mirror checks, quick visits, small finds.</h2>
-      </div>
-      <div class="mem-grid">
-        <img src="./assets/clients/z7178306265450_84bfd9ebc3b48729afcb44278aeca207.jpg" alt="mem1" />
-        <img src="./assets/clients/z7178306224600_8486f66fd403773f2ee5506a76ce2240.jpg" alt="mem2" />
-        <img src="./assets/clients/z7178306207395_676a475b8bb96f82e201221668c48c6c.jpg" alt="mem3" />
-        <img src="./assets/clients/z7178306189579_aff66e3e3c0b18b65f227bbc4cbbab66.jpg" alt="mem4" />
-        <img src="./assets/clients/z7178306242109_9571f31a35e07a35892fdbbe7e75602b.jpg" alt="mem5" />
-        <img src="./assets/clients/z7178306237571_8e556282cd730b07b4556d878929ea39.jpg" alt="mem6" />
+      <div class="product-grid four">
+        <article class="card product">
+          <img src="../assets/1779785895461_1852359121458858814_g6686314633954570304_abf22265a0488a067afdc5e998d09598.jpg" alt="Lace top" />
+          <div class="card-copy"><small>NEW ARRIVAL</small><h3>Lace top</h3><p>Soft lace, easy drape, a little romantic.</p><button>Ask about this piece</button></div>
+        </article>
+        <article class="card product">
+          <img src="../assets/1779785895476_1852359121458858814_g6686314633954570304_1980cafda7d4a85bfa59223a4ee3f9a9.jpg" alt="Shoulder bag" />
+          <div class="card-copy"><small>NEW ARRIVAL</small><h3>Shoulder bag</h3><p>Structured shape, vintage black, daily use.</p><button>Ask about this piece</button></div>
+        </article>
+        <article class="card product">
+          <img src="../assets/1779785895487_1852359121458858814_g6686314633954570304_f8cb46a3c34424bfa01f41f8c770d32d.jpg" alt="Denim mini" />
+          <div class="card-copy"><small>NEW ARRIVAL</small><h3>Denim mini</h3><p>Low-waist energy, clean fit, easy to style.</p><button>Ask about this piece</button></div>
+        </article>
+        <article class="card product">
+          <img src="../assets/1779785895498_1852359121458858814_g6686314633954570304_89d5d5b1220ce9c93d110dfcb22a4fda.jpg" alt="Silky shirt" />
+          <div class="card-copy"><small>NEW ARRIVAL</small><h3>Silky shirt</h3><p>Fluid shine, soft touch, quiet but polished.</p><button>Ask about this piece</button></div>
+        </article>
       </div>
     </section>
 
-    <section class="section gallery">
-      <div class="section__head"><div class="eyebrow">SHOP TEXTURE</div><h2>Good fabric, soft light, wearable mood.</h2></div>
-      <div class="gallery-grid">
-        <img src="./assets/1779785895507_1852359121458858814_g6686314633954570304_928c9ae601426366fdbff57fc9f9704d.jpg" alt="g1" />
-        <img src="./assets/1779785895538_1852359121458858814_g6686314633954570304_9fa5e78f932fde48bf9800feb8f80900.jpg" alt="g2" />
-        <img src="./assets/1779785895551_1852359121458858814_g6686314633954570304_e7c05286d2c8c138a7ae1f6f447a8987.jpg" alt="g3" />
+    <section class="section pale" id="edit">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">EDIT STANDARDS</p>
+          <h2>A smaller edit, easier to choose from.</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><h3>Curated</h3><p>Selected for shape, taste, and wearability.</p></article>
+        <article class="feature"><h3>Wearable</h3><p>Easy to style, easier to live in.</p></article>
+        <article class="feature"><h3>Honest condition</h3><p>Ask for close detail before you visit.</p></article>
       </div>
     </section>
 
-    <section class="section reviews" id="reviews">
-      <div class="section__head"><div class="eyebrow">WHAT PEOPLE NOTICE</div><h2>Easy to browse. Easy to find something.</h2></div>
-      <div class="review-row"><span>“Cute pieces, good mood, and not overwhelming.”</span><span>“The kind of shop you want to stop by again.”</span></div>
+    <section class="section tan">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">REAL CUSTOMERS</p>
+          <h2>Seen in store. Taken home.</h2>
+        </div>
+        <p>A real edit, worn on real people. This is what the shop feels like in motion.</p>
+      </div>
+      <div class="gallery-grid large-grid">
+        <img src="../assets/clients/z7178306265450_84bfd9ebc3b48729afcb44278aeca207.jpg" alt="customer 1" />
+        <img src="../assets/clients/z7178306224600_8486f66fd403773f2ee5506a76ce2240.jpg" alt="customer 2" />
+        <img src="../assets/clients/z7178306207395_676a475b8bb96f82e201221668c48c6c.jpg" alt="customer 3" />
+        <img src="../assets/clients/z7178306189579_aff66e3e3c0b18b65f227bbc4cbbab66.jpg" alt="customer 4" />
+        <img src="../assets/clients/z7178306242109_9571f31a35e07a35892fdbbe7e75602b.jpg" alt="customer 5" />
+        <img src="../assets/clients/z7178306237571_8e556282cd730b07b4556d878929ea39.jpg" alt="customer 6" />
+        <img src="../assets/clients/z7178306263071_b873f04584be3e6407c2274f5e4dd66c.jpg" alt="customer 7" />
+        <img src="../assets/clients/z7178306251946_2fcf72a831daafdf3427eb792cb3781a.jpg" alt="customer 8" />
+        <img src="../assets/clients/z7178306195208_d01d76a3152284dc34c757df3087b7a5.jpg" alt="customer 9" />
+        <img src="../assets/clients/z7178306276994_65e1d204f4b532ae46e99ade34ac7f98.jpg" alt="customer 10" />
+        <img src="../assets/clients/z7178306174683_18366e8bd8b2794933d2c95337e18f11.jpg" alt="customer 11" />
+        <img src="../assets/clients/z7178306207643_03d6f9821e750752f81c6dc5826d4532.jpg" alt="customer 12" />
+      </div>
+      <div class="center"><a class="btn ghost" href="#top">See more</a></div>
+    </section>
+
+    <section class="section cream">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">HOW PIECES FEEL</p>
+          <h2>How the pieces look in real life.</h2>
+        </div>
+        <a class="btn dark" href="#reviews">See More Looks</a>
+      </div>
+      <div class="looks-row">
+        <div class="hero-look"><img src="../assets/demo/story-1770750314137.jpg" alt="look 1" /></div>
+        <div class="mini-row">
+          <img src="../assets/demo/story-1668749091483.jpg" alt="look 2" />
+          <img src="../assets/demo/story-1717852360273.jpg" alt="look 3" />
+          <img src="../assets/demo/story-1619086303291.jpg" alt="look 4" />
+          <img src="../assets/demo/story-1660888270258.jpg" alt="look 5" />
+          <img src="../assets/demo/photo-1710428256420.jpg" alt="look 6" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section pale" id="reviews">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">REVIEWS</p>
+          <h2>Trusted by customers who shop with intention.</h2>
+        </div>
+        <a class="btn dark" href="#visit">Read More Reviews</a>
+      </div>
       <div class="review-grid">
-        <article><strong>Careful selection</strong><p>Small enough to browse slowly, curated enough to feel clear.</p></article>
-        <article><strong>Friendly try-on</strong><p>Come in, check fit, take your time, leave with one right piece.</p></article>
-        <article><strong>Tourist-friendly</strong><p>Open daily, easy route, simple direction-first visit flow.</p></article>
+        <article class="feature"><h3>Mai Tran</h3><p>Found a shirt that fit exactly how I wanted. Staff checked condition and helped me decide.</p></article>
+        <article class="feature"><h3>Julen Martin</h3><p>Small shop, good tone, no pressure. Pieces feel selected, not random.</p></article>
+        <article class="feature"><h3>Sofia Le</h3><p>I loved the mirror corner and the way every item had a reason to be there.</p></article>
+        <article class="feature"><h3>An Pham</h3><p>Asked about sizing before visiting. Came in, tried on, took it home.</p></article>
       </div>
     </section>
 
     <section class="visit" id="visit">
-      <img src="./assets/banners/banner.png" alt="Yen May shop banner" />
+      <img src="../assets/demo/photo-1635358155379.jpg" alt="visit" />
       <div>
-        <div class="eyebrow">VISIT STORE</div>
-        <h2>Get directions, come by, try pieces on.</h2>
-        <p>Yen May is a small vintage stop in Da Nang for people who want to touch the fabric, check the shape, and leave with the piece that feels right.</p>
-        <address>45/3 An Hai Dong 1 Street, Son Tra, Da Nang<br />Open daily 10:00–21:00</address>
+        <p class="eyebrow">VISIT THE SHOP</p>
+        <h2>A quiet vintage stop worth finding in Da Nang.</h2>
+        <p>Come by to browse slowly, try pieces on, and leave with the one that feels right. Open daily in Da Nang.</p>
+        <a class="btn btn-fill" href="#top">Get directions and visit</a>
       </div>
     </section>
 
     <section class="instagram">
       <div>
-        <div class="eyebrow">INSTAGRAM</div>
+        <p class="eyebrow">NEW ARRIVALS</p>
         <h2>New arrivals move here first.</h2>
         <p>Follow for fresh finds, try-ons, and pieces that may not stay long on the rack.</p>
       </div>
       <div class="ig-row">
-        <img src="./assets/clients/z7178306265450_84bfd9ebc3b48729afcb44278aeca207.jpg" alt="ig1" />
-        <img src="./assets/1779785895507_1852359121458858814_g6686314633954570304_928c9ae601426366fdbff57fc9f9704d.jpg" alt="ig2" />
-        <img src="./assets/1779785895538_1852359121458858814_g6686314633954570304_9fa5e78f932fde48bf9800feb8f80900.jpg" alt="ig3" />
+        <img src="../assets/clients/z7178306224928_363bba2e3b4d7664d957255d1e5e3991.jpg" alt="ig 1" />
+        <img src="../assets/clients/z7178306267161_d14c503d34d1a65d43434fae927c1134.jpg" alt="ig 2" />
+        <img src="../assets/clients/z7178306242109_9571f31a35e07a35892fdbbe7e75602b.jpg" alt="ig 3" />
       </div>
-      <a class="cta cta--light" href="#top">Follow on Instagram</a>
+      <a class="btn dark" href="#top">Follow on Instagram</a>
     </section>
 
-    <div class="footer-gap"></div>
     <footer class="footer">
-      <strong>Yen May Vintage</strong><span>Curated Y2K &amp; vintage in Da Nang</span><span>© 2026 Yen May Vintage</span>
+      <div>Yen May Vintage</div>
+      <nav><a href="#finds">New Finds</a><a href="#reviews">Reviews</a><a href="#visit">Visit Store</a><a href="#top">Instagram</a><a href="#top">Contact</a></nav>
+      <div>45/3 An Hai Dong 1 Street, Son Tra, Da Nang — Open daily 10:00–21:00</div>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
