@@ -110,6 +110,28 @@ section{padding-block:56px}
 .ours{display:flex;gap:10px;align-items:center;font-size:14px;padding:10px 12px;border:1.5px dashed var(--c)}
 .ours b{font:400 20px/1 var(--f-display);color:var(--c);letter-spacing:.03em;flex:none}
 
+
+/* similar videos */
+.similar{display:grid;gap:14px;margin-bottom:18px}
+.similar h4 span{text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:14px}
+.vid{display:grid;gap:6px;align-content:start;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:0 0 12px;min-width:0;transition:transform .2s ease,box-shadow .2s ease}
+.vid:hover{transform:translateY(-3px);box-shadow:0 12px 26px -14px color-mix(in srgb,var(--c) 70%,transparent)}
+.vid .th{position:relative;display:block;aspect-ratio:16/9;max-width:100%;background:var(--track);overflow:hidden}
+.vid .th img{width:100%;height:100%;object-fit:cover;display:block}
+.vid .th::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:30px;margin:-15px 0 0 -22px;border-radius:8px;background:rgba(0,0,0,.6);clip-path:none;opacity:.85}
+.vid .th::before{content:"";position:absolute;z-index:1;left:50%;top:50%;margin:-7px 0 0 -4px;border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #fff}
+.vid .views{position:absolute;right:6px;bottom:6px;font:600 11.5px/1 var(--f-mono);background:rgba(0,0,0,.78);color:#fff;padding:4px 6px}
+.vid .top{position:absolute;left:6px;top:6px;font:600 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--c);color:var(--on-color);padding:4px 6px}
+.vid .vt{font-weight:700;font-size:14.5px;line-height:1.3;padding-inline:12px}
+.vid .vm{font:12px/1.3 var(--f-mono);color:var(--mute);padding-inline:12px}
+.vid .lack{font-size:13.5px;line-height:1.4;color:var(--ink2);padding:8px 12px 0;margin-inline:12px 12px;padding-inline:0;border-top:1px dashed var(--line)}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.verdict p{margin:0;font-size:15px;padding:12px 14px;background:var(--surface);border-left:4px solid var(--line)}
+.verdict p.ours{border-left-color:var(--c);background:color-mix(in srgb,var(--c) 10%,var(--surface))}
+.verdict b{display:block;font:400 20px/1 var(--f-display);letter-spacing:.03em;margin-bottom:4px}
+.verdict p.ours b{color:var(--c)}
+
 /* run-sheet */
 .run{position:relative;display:grid;gap:0;padding-left:26px}
 .run::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--c),color-mix(in srgb,var(--c) 15%,transparent))}
@@ -184,6 +206,11 @@ section{padding-block:56px}
       <div class="row1"><span class="big">A</span><span class="badge">Suggested for pilot</span><span class="chip">~11 min</span><span class="chip">Your best-performing subject</span></div>
       <h3>9 Unwritten Rules in Vietnam That Quietly Kill Foreign Deals</h3>
     </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=eFU2TOGQuG8" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/eFU2TOGQuG8/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">913k views</span><span class="top">Most viewed</span></span><span class="vt">Why Japanese Hate Working with Foreigners</span><span class="vm">Paolo fromTOKYO · 2023 · 14 min</span><span class="lack">Same idea, but for Japan: 9 “don’ts” from an insider. Proof this format can go big.</span></a><a class="vid" href="https://www.youtube.com/watch?v=IgoxsaXzXHs" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/IgoxsaXzXHs/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">274k views</span></span><span class="vt">12 Things That Shock Foreigners in Vietnam After the First Month</span><span class="vm">Vietnam Visabox · 2026 · 18 min</span><span class="lack">A list for new expats. Daily life, no business angle, no data.</span></a><a class="vid" href="https://www.youtube.com/watch?v=2Q18LaHAkNo" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/2Q18LaHAkNo/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">151k views</span></span><span class="vt">Q&amp;A: Vietnamese Culture 101</span><span class="vm">What The Pho · 2021 · 12 min</span><span class="lack">Couple vlog about tipping, drinking and shoes. Tourist level.</span></a><a class="vid" href="https://www.youtube.com/watch?v=w68Tf-uT4pg" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/w68Tf-uT4pg/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">137k views</span></span><span class="vt">9 WEIRD Rules OK in Vietnamese Culture, Totally WRONG in America</span><span class="vm">Duong Global Business · 2025 · 16 min</span><span class="lack">A US lawyer tells a story per rule. No numbers, no sources.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Winners run 11–18 min and use “N things / N rules” titles. None show data, none speak to companies.</p><p class="ours"><b>Our video</b>9 rules a foreign company actually pays for, with the numbers, from a Belgian on the ground.</p></div>
+    </div>
     <div class="grid2">
       <div class="card">
         <h4>Data on screen</h4>
@@ -203,18 +230,6 @@ section{padding-block:56px}
           <div class="bar"><span class="lb">Admin delays projects</span><span class="tr"><span class="fl" style="width:33%;display:block"></span></span><span class="v">33%</span></div>
         </div>
         <div class="src">European firms in Vietnam, EuroCham Business Confidence Index Q2 2026</div>
-      </div>
-      <div class="card comp">
-        <h4>Already on YouTube</h4>
-        <div class="bars" role="img" aria-label="Top competing videos by views">
-          <div class="bar"><span class="lb">12 Things That Shock Foreigners…<small>Vietnam Visabox · 2026 · 18 min</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">274k</span></div>
-          <div class="bar"><span class="lb">Vietnamese Culture 101<small>What The Pho · 2021 · 12 min</small></span><span class="tr"><span class="fl" style="width:55.3%;display:block"></span></span><span class="v">151k</span></div>
-          <div class="bar"><span class="lb">9 WEIRD Rules OK in Vietnam…<small>Duong Global · 2025 · 16 min</small></span><span class="tr"><span class="fl" style="width:49.9%;display:block"></span></span><span class="v">137k</span></div>
-          <div class="bar"><span class="lb">Best video, Business-Way TV<small>cross-cultural business</small></span><span class="tr"><span class="fl" style="width:1.6%;display:block"></span></span><span class="v">4k</span></div>
-        </div>
-        <div class="gaps"><span>Winners run 11–18 min</span><span>“N things / N rules” titles win</span><span>No data or sources</span><span>No European business voice</span></div>
-        <div class="ours"><b>Ours</b>9 rules a foreign company actually pays for, with the numbers and a Belgian on the ground.</div>
-        <div class="src">yt-dlp, collected 23 Oct 2026 · 292 videos checked</div>
       </div>
     </div>
     <div class="grid2" style="margin-top:16px">
@@ -249,6 +264,11 @@ section{padding-block:56px}
       <div class="row1"><span class="big">B</span><span class="badge">Suggested for pilot</span><span class="chip">~9 min</span><span class="chip">Closest to your work as a marketer</span></div>
       <h3>McDonald's: 37 Stores in 11 Years. Lotteria: 222.</h3>
     </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=l9pthhpd7So" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/l9pthhpd7So/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">4.8M views</span><span class="top">Most viewed</span></span><span class="vt">Why McDonald’s Flopped In Vietnam</span><span class="vm">CNBC · 2018 · 6 min</span><span class="lack">Good news-style explainer, but the numbers are from 2018 (17 stores).</span></a><a class="vid" href="https://www.youtube.com/watch?v=llwyY4BDbfc" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/llwyY4BDbfc/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.4M views</span></span><span class="vt">Why Starbucks Struggles In Vietnam’s $1B Coffee Market</span><span class="vm">CNBC · 2020 · 11 min</span><span class="lack">Same style, one brand only, data from 2020.</span></a><a class="vid" href="https://www.youtube.com/watch?v=fZnKWY9sJ-4" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/fZnKWY9sJ-4/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.1M views</span></span><span class="vt">Why STARBUCKS FAILED in VIETNAM?!</span><span class="vm">Dustin Cheverier · 2023 · 11 min</span><span class="lack">Expat opinion. Starbucks did not fail: it now has 150 stores.</span></a><a class="vid" href="https://www.youtube.com/watch?v=D0QTOoLHUjs" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/D0QTOoLHUjs/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.0M views</span></span><span class="vt">Tại sao McDonald’s chưa bùng nổ tại Việt Nam</span><span class="vm">Lóng · 2026 · 16 min</span><span class="lack">Strong and recent, but in Vietnamese only.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Big demand: these topics have 14.4M views. But the English videos are from 2018–2023 and cover one brand each.</p><p class="ours"><b>Our video</b>All brands on one scoreboard with 2025–26 numbers, and what a marketer in Vietnam sees.</p></div>
+    </div>
     <div class="grid2">
       <div class="card">
         <h4>Data on screen</h4>
@@ -268,19 +288,6 @@ section{padding-block:56px}
         <div class="stack100" role="img" aria-label="E-commerce share Q3 2025: Shopee 56%, TikTok Shop 41%, Lazada 3%"><span style="width:56%;background:var(--c)"></span><span style="width:41%;background:color-mix(in srgb,var(--c) 45%,var(--track))"></span><span style="width:3%;background:var(--ink2)"></span></div>
         <div class="legend"><span><i style="background:var(--c)"></i>Shopee 56%</span><span><i style="background:color-mix(in srgb,var(--c) 45%,var(--track))"></i>TikTok Shop 41%</span><span><i style="background:var(--ink2)"></i>Lazada 3%</span></div>
         <div class="src">E-commerce sales share Q3 2025 (Metric)</div>
-      </div>
-      <div class="card comp">
-        <h4>Already on YouTube</h4>
-        <div class="bars" role="img" aria-label="Top competing videos by views">
-          <div class="bar"><span class="lb">Why McDonald's Flopped In Vietnam<small>CNBC · 2018 · 6 min</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">4.8M</span></div>
-          <div class="bar"><span class="lb">How Vietnam Is DESTROYING American Fast Food<small>Food review · 2025 · 21 min</small></span><span class="tr"><span class="fl" style="width:37.1%;display:block"></span></span><span class="v">1.8M</span></div>
-          <div class="bar"><span class="lb">Why Starbucks Struggles In Vietnam<small>CNBC · 2020 · 11 min</small></span><span class="tr"><span class="fl" style="width:28%;display:block"></span></span><span class="v">1.4M</span></div>
-          <div class="bar"><span class="lb">Why STARBUCKS FAILED in VIETNAM?!<small>Dustin Cheverier · 2023 · 11 min</small></span><span class="tr"><span class="fl" style="width:22.6%;display:block"></span></span><span class="v">1.1M</span></div>
-          <div class="bar"><span class="lb">Tại sao McDonald's chưa bùng nổ<small>Lóng · 2026 · Vietnamese</small></span><span class="tr"><span class="fl" style="width:21.1%;display:block"></span></span><span class="v">1.0M</span></div>
-        </div>
-        <div class="gaps"><span>Big demand: 14.4M views</span><span>English videos are 2018–2023</span><span>One brand per video</span><span>No marketer on the ground</span></div>
-        <div class="ours"><b>Ours</b>All the brands on one scoreboard with 2025–26 numbers, and what a marketer in Vietnam sees.</div>
-        <div class="src">yt-dlp, collected 23 Oct 2026 · 262 videos checked</div>
       </div>
     </div>
     <div class="grid2" style="margin-top:16px">
@@ -315,6 +322,11 @@ section{padding-block:56px}
       <div class="row1"><span class="big">C</span><span class="badge ghost">Video 3</span><span class="chip">~8 min</span><span class="chip">Needs a lawyer's check</span></div>
       <h3>Vietnam Says 3 Days. The World Bank Measured 66.</h3>
     </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=xTPYCWfp314" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/xTPYCWfp314/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">117k views</span><span class="top">Most viewed</span></span><span class="vt">Set up Company in Vietnam – Easy Step guide</span><span class="vm">LHD Law Firm · 2025 · 4 min</span><span class="lack">A law-firm ad: slides and voice-over, no real times or costs.</span></a><a class="vid" href="https://www.youtube.com/watch?v=wQiar2t-Nxg" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/wQiar2t-Nxg/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">89k views</span></span><span class="vt">Establish Your Business in Vietnam: A–Z Guide</span><span class="vm">LTS Law Firm · 2025 · 4 min</span><span class="lack">A step list under the old rules (before March 2026).</span></a><a class="vid" href="https://www.youtube.com/watch?v=Yv7DdQ8ZRM4" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/Yv7DdQ8ZRM4/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">40k views</span></span><span class="vt">HOW to Open a Business in Vietnam</span><span class="vm">Duong Global Business · 2020 · 12 min</span><span class="lack">Talking head, made in 2020.</span></a><a class="vid" href="https://www.youtube.com/watch?v=XocarTOqI3s" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/XocarTOqI3s/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">30k views</span></span><span class="vt">DO NOT Open A Business in Vietnam This Year (2023)</span><span class="vm">Duong Global Business · 2023 · 13 min</span><span class="lack">Opinion piece on 2023 conditions.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Mostly law firms selling their service. All 15 most-viewed videos were made before the March 2026 law.</p><p class="ours"><b>Our video</b>The 2026 rules, the measured 66 days, and the full first-year bill.</p></div>
+    </div>
     <div class="grid2">
       <div class="card">
         <h4>Data on screen</h4>
@@ -329,18 +341,6 @@ section{padding-block:56px}
         </div>
         <div class="legend"><span><i style="background:var(--c)"></i>Office $6.5k</span><span><i style="background:color-mix(in srgb,var(--c) 70%,var(--track))"></i>2 staff $6.0k</span><span><i style="background:color-mix(in srgb,var(--c) 50%,var(--track))"></i>Setup services $4.7k</span><span><i style="background:var(--purple)"></i>Director insurance $4.4k</span><span><i style="background:var(--teal)"></i>Accounting $2.5k</span><span><i style="background:var(--ink2)"></i>Audit $0.9k</span></div>
         <div class="src">Year-1 estimate ≈ $25k, small service company in HCMC (mid case, assumptions shown in the video). Government fees: about $3.</div>
-      </div>
-      <div class="card comp">
-        <h4>Already on YouTube</h4>
-        <div class="bars" role="img" aria-label="Top competing videos by views">
-          <div class="bar"><span class="lb">Set up Company in Vietnam<small>LHD Law Firm · 2025 · 4 min</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">117k</span></div>
-          <div class="bar"><span class="lb">Establish Your Business in Vietnam<small>LTS Law Firm · 2025 · 4 min</small></span><span class="tr"><span class="fl" style="width:76.7%;display:block"></span></span><span class="v">89k</span></div>
-          <div class="bar"><span class="lb">HOW to Open a Business in Vietnam<small>Duong Global · 2020 · 12 min</small></span><span class="tr"><span class="fl" style="width:34.5%;display:block"></span></span><span class="v">40k</span></div>
-          <div class="bar"><span class="lb">10 steps to open a foreign-owned company<small>VNBG · 2022 · 3 min</small></span><span class="tr"><span class="fl" style="width:27.9%;display:block"></span></span><span class="v">33k</span></div>
-        </div>
-        <div class="gaps"><span>15 of 15 top videos predate the 2026 law</span><span>Mostly law firms selling services</span><span>No real timeline</span><span>No first-year cost table</span></div>
-        <div class="ours"><b>Ours</b>The 2026 rules, the measured 66 days, and the full first-year bill.</div>
-        <div class="src">yt-dlp, collected 23 Oct 2026 · 195 long videos checked</div>
       </div>
     </div>
     <div class="grid2" style="margin-top:16px">
@@ -375,6 +375,11 @@ section{padding-block:56px}
       <div class="row1"><span class="big">D</span><span class="badge ghost">Publish ~20 Jan 2027</span><span class="chip">~9 min</span><span class="chip">Tết 2027 starts 6 Feb</span></div>
       <h3>Tết: The Month Vietnam Stops Working (The Numbers)</h3>
     </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=6HF_kVBdgog" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/6HF_kVBdgog/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">224k views</span><span class="top">Most viewed</span></span><span class="vt">Celebrating Tet in Vietnam for the First Time!</span><span class="vm">Mike and Ashley · 2024 · 15 min</span><span class="lack">Travel vlog: food, family, fireworks.</span></a><a class="vid" href="https://www.youtube.com/watch?v=iQbdZMTX4ds" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/iQbdZMTX4ds/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">222k views</span></span><span class="vt">How Do Vietnamese People Celebrate the Lunar New Year (Tet)?</span><span class="vm">What The Pho · 2021 · 17 min</span><span class="lack">How families celebrate. Culture, not business.</span></a><a class="vid" href="https://www.youtube.com/watch?v=MGL77m8fPjY" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/MGL77m8fPjY/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">167k views</span></span><span class="vt">Kinh doanh mùa Tết</span><span class="vm">VTV24 · 2022 · 7 min</span><span class="lack">Vietnamese TV news, not made for foreigners.</span></a><a class="vid" href="https://www.youtube.com/watch?v=oj3bTtC5E-U" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/oj3bTtC5E-U/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">31k views</span></span><span class="vt">Tet in Vietnam: The Survival Guide Nobody Gives You</span><span class="vm">Duong Global Business · 2026 · 15 min</span><span class="lack">The closest to business, but mostly visa and travel tips. No data.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>16 of the top 20 Tết videos are travel vlogs. 91% of views go to videos posted in January–February.</p><p class="ours"><b>Our video</b>What Tết does to orders, staff and money, plus a week-by-week plan for 2027.</p></div>
+    </div>
     <div class="grid2">
       <div class="card">
         <h4>Data on screen</h4>
@@ -394,18 +399,6 @@ section{padding-block:56px}
           <div class="bar"><span class="lb">2026</span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">9 d</span></div>
           <div class="bar"><span class="lb">2027 <small>4–10 Feb</small></span><span class="tr"><span class="fl hi" style="width:77.8%;display:block"></span></span><span class="v">7 d</span></div>
         </div>
-      </div>
-      <div class="card comp">
-        <h4>Already on YouTube</h4>
-        <div class="bars" role="img" aria-label="Top competing videos by views">
-          <div class="bar"><span class="lb">Celebrating Tet in Vietnam for the First Time<span class="tag">travel</span><small>Mike and Ashley · 2024</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">224k</span></div>
-          <div class="bar"><span class="lb">How Vietnamese People Celebrate Tet<span class="tag">travel</span><small>What The Pho · 2021</small></span><span class="tr"><span class="fl" style="width:99.2%;display:block"></span></span><span class="v">222k</span></div>
-          <div class="bar"><span class="lb">Kinh doanh mùa Tết<span class="tag">Vietnamese</span><small>VTV24 · 2022</small></span><span class="tr"><span class="fl" style="width:74.4%;display:block"></span></span><span class="v">167k</span></div>
-          <div class="bar"><span class="lb">Tet in Vietnam: The Survival Guide<span class="tag">business</span><small>Duong Global · 2026</small></span><span class="tr"><span class="fl" style="width:13.8%;display:block"></span></span><span class="v">31k</span></div>
-        </div>
-        <div class="gaps"><span>16 of top 20 are travel vlogs</span><span>91% of views: Jan–Feb uploads</span><span>No English business video with data</span></div>
-        <div class="ours"><b>Ours</b>What Tết does to orders, staff and money, plus a week-by-week plan for 2027.</div>
-        <div class="src">yt-dlp, collected 23 Oct 2026</div>
       </div>
     </div>
     <div class="grid2" style="margin-top:16px">
