@@ -67,6 +67,8 @@ section.band{background:var(--band)}
 .keep li{margin-bottom:6px}
 .topic{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);padding:20px;min-width:0}
 .topic .letter{font:700 15px var(--f-mono);color:var(--acc);letter-spacing:.1em}
+.yt{border-top:1px dashed var(--line);padding-top:12px;font-size:15px;color:var(--ink2)}
+.yt b{color:var(--ink)}
 .pick{border:2px solid var(--acc)}
 .pick .letter::after{content:"  · suggested for pilot";color:var(--mute);font-weight:400}
 ol.need{margin:0;padding-left:22px}
@@ -144,7 +146,7 @@ ol.need li{margin-bottom:8px}
       <span class="tag">Peer-reviewed · 6.9 million video sessions</span>
       <blockquote>“Videos produced with a more personal feel could be more engaging than high-fidelity studio recordings.”</blockquote>
       <blockquote>“Videos that intersperse an instructor’s talking head with slides are more engaging than slides alone.”</blockquote>
-      <p>This is exactly the plan: your raw, personal style, with a simple chart when a number matters. The same study found engagement drops on long videos, so the first pilot will be about 8 minutes, not 10.</p>
+      <p>This is exactly the plan: your raw, personal style, with a simple chart when a number matters. The same study found engagement drops on longer videos. On the other hand, the competing videos that win on these topics run 9 to 18 minutes (see section 5). So each video gets the length its topic needs, between 8 and 12 minutes, and nothing is padded.</p>
       <div class="src">Guo, Kim &amp; Rubin, “How Video Production Affects Student Engagement”, ACM Learning at Scale 2014 (MIT/edX) · <a href="https://up.csail.mit.edu/other-pubs/las2014-pguo-engagement.pdf" target="_blank" rel="noopener">up.csail.mit.edu</a></div>
     </div>
     <div class="ev">
@@ -198,7 +200,7 @@ ol.need li{margin-bottom:8px}
     <div>
       <p class="kicker">5 · Four topics, each with real data</p>
       <h2>Pick two for the pilot</h2>
-      <p>This is a sample of what each video would show. Each one has a full research file behind it.</p>
+      <p>This is a sample of what each video would show. For each topic I also checked what already exists on YouTube: several hundred videos, with views and channel size collected on 23 Oct 2026. Each topic has a full research file behind it (see <a href="sources.html">all sources</a>).</p>
     </div>
 
     <div class="topic pick">
@@ -218,6 +220,7 @@ ol.need li{margin-bottom:8px}
       </div>
       <p>Also in the video: 53% of European firms in Vietnam report delays from regulations (EuroCham, Q2 2026), and only 9% of Vietnamese employees are engaged at work (Gallup 2026).</p>
       <div class="src">The Culture Factor (Hofstede) country comparison · <a href="https://www.theculturefactor.com/country-comparison-tool?countries=belgium%2Cnetherlands%2Cunited+states%2Cunited+kingdom%2Cgermany%2Cvietnam" target="_blank" rel="noopener">theculturefactor.com</a></div>
+      <div class="yt"><b>On YouTube now:</b> the strongest video is “12 Things That Shock Foreigners in Vietnam After the First Month”, with 273,545 views on a channel of 4,120 subscribers (18 min). Winners on this topic run 11–18 minutes and use “N things / N rules” titles. None of them show data or sources, and none speak to companies from a European point of view.<br><b>Proposed title:</b> “9 Unwritten Rules in Vietnam That Quietly Kill Foreign Deals” · about 10–12 min</div>
     </div>
 
     <div class="topic pick">
@@ -237,6 +240,7 @@ ol.need li{margin-bottom:8px}
       </div>
       <p>Starbucks holds about 2% of Vietnam's ~$1.2 billion coffee market (Euromonitor). A street iced coffee costs 15–20,000 dong; a Starbucks Americano costs about 60,000.</p>
       <div class="src">Coffee stores end-2025 (Highlands figure includes 38 stores in the Philippines) · <a href="https://news.tuoitre.vn/starbucks-hits-150-store-milestone-in-vietnam-103260102133116485.htm" target="_blank" rel="noopener">tuoitre.vn</a></div>
+      <div class="yt"><b>On YouTube now:</b> CNBC's “Why McDonald’s Flopped In Vietnam” has 4.8 million views, but it is from 2018 and still counts 17 stores. The biggest recent one is in Vietnamese (1.0 million views, July 2026). No English video compares all the brands with 2025–26 store counts. The 39 relevant videos together have 14.4 million views.<br><b>Proposed title:</b> “McDonald's: 37 Stores in 11 Years. Lotteria: 222.” · about 9 min</div>
     </div>
 
     <div class="topic">
@@ -250,6 +254,7 @@ ol.need li{margin-bottom:8px}
       </div>
       <p>Registration cost: 44% of income per person for a foreign firm, 5% for a local one. New investment law in force since 1 March 2026.</p>
       <div class="src">World Bank, B-READY 2025, Viet Nam economy profile · <a href="https://www.worldbank.org/content/dam/sites/b-ready/documents/pdf/Viet-Nam.pdf" target="_blank" rel="noopener">worldbank.org</a></div>
+      <div class="yt"><b>On YouTube now:</b> the top videos come from law firms looking for clients. The best has 116,576 views on a channel of 1,210 subscribers (4 min). All 15 most-viewed videos were made before the new law of 1 March 2026. None show the 66-day measurement or a first-year cost table.<br><b>Proposed title:</b> “Vietnam Says 3 Days. The World Bank Measured 66.” · about 8 min</div>
     </div>
 
     <div class="topic">
@@ -260,13 +265,14 @@ ol.need li{margin-bottom:8px}
         <div class="bar"><span class="lbl">1–15 Feb</span><div class="trk"><div class="fill" style="width:100%">~20.3</div></div></div>
         <div class="bar"><span class="lbl">16–28 Feb (Tết)</span><div class="trk"><div class="fill hi" style="width:50.5%">10.27</div></div></div>
       </div>
-      <p>Billion USD; that's −49.5% in the Tết half. The average Tết bonus at foreign-invested companies in 2026 was 9.21 million dong. Tết 2027 public holiday: 4–10 February. Best published early January.</p>
+      <p>Billion USD; that's −49.5% in the Tết half. The average Tết bonus at foreign-invested companies in 2026 was 9.21 million dong. Tết 2027 public holiday: 4–10 February.</p>
       <div class="src">Vietnam customs data via Đại biểu Nhân dân, 7 Mar 2026 (first half derived from the −49.5%) · <a href="https://daibieunhandan.vn/xuat-nhap-khau-hai-thang-dau-nam-dat-hon-155-ty-usd-10408913.html" target="_blank" rel="noopener">daibieunhandan.vn</a></div>
+      <div class="yt"><b>On YouTube now:</b> 16 of the top 20 Tết videos are travel vlogs. The best business video has 30,900 views and uses no economic data. 91% of all views go to videos uploaded in January–February, so the right moment is mid to late January 2027.<br><b>Proposed title:</b> “Tết: The Month Vietnam Stops Working (The Numbers)” · about 8–10 min</div>
     </div>
 
     <div class="ev">
       <h3>My suggestion: A + B for the pilot</h3>
-      <p>A is already your best-performing subject. B is closest to your expertise as a marketer, and the store numbers make strong visuals. C needs a lawyer to check the legal steps, so it fits better as video 3. D works best in early January, just before Tết.</p>
+      <p>A is already your best-performing subject. B is closest to your expertise as a marketer, and the store numbers make strong visuals. C has the clearest gap on YouTube (every top video is outdated), but the legal steps need a lawyer's check, so it fits better as video 3. D goes out in mid to late January, just before Tết.</p>
     </div>
   </div>
 </section>
@@ -287,6 +293,6 @@ ol.need li{margin-bottom:8px}
   </div>
 </section>
 
-<footer class="wrap foot">Prepared by Vuong for Marketing House · 21 October 2026 · Full research files (quotes, sources, reliability rating per number) available on request.</footer>
+<footer class="wrap foot">Prepared by Vuong for Marketing House · 21 October 2026 · <a href="sources.html">Full research files</a>: quotes, sources and a reliability rating for every number, plus the competitor video data.</footer>
 </body>
 </html>
