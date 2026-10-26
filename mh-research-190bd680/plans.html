@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pilot Video Plans</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Layout: logo-led. Cream hero with the paint ring; 4 topic tiles in the logo's ring colours; each plan = data charts + competitor chart + timed run-sheet */
+:root{
+  --cream:#FDF0EF;--bg:#ffffff;--surface:#ffffff;--ink:#1d1b20;--ink2:#4a4750;--mute:#75727b;--line:#eee3e1;--track:#f4ecea;
+  --orange:#F7931E;--yellow:#F4D21F;--lime:#9CC93A;--teal:#22AFAB;--blue:#3F9BE0;--magenta:#E0177B;--purple:#7B3F98;
+  --on-color:#ffffff;
+  --f-display:"Bebas Neue",Oswald,"Arial Narrow",sans-serif;--f-body:Roboto,-apple-system,system-ui,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",Consolas,ui-monospace,monospace;
+  --ring:conic-gradient(from 200deg,var(--magenta),var(--orange),var(--yellow),var(--lime),var(--teal),var(--blue),var(--purple),var(--magenta));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --cream:#221c20;--bg:#151418;--surface:#1e1c22;--ink:#f4f1f2;--ink2:#cbc7ce;--mute:#a19da6;--line:#332f38;--track:#2a2730;
+  --orange:#FFA53D;--yellow:#F7DC4A;--lime:#B2DB57;--teal:#3FCFCB;--blue:#62B2F0;--magenta:#F2459A;--purple:#A56CC3;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --cream:#221c20;--bg:#151418;--surface:#1e1c22;--ink:#f4f1f2;--ink2:#cbc7ce;--mute:#a19da6;--line:#332f38;--track:#2a2730;
+  --orange:#FFA53D;--yellow:#F7DC4A;--lime:#B2DB57;--teal:#3FCFCB;--blue:#62B2F0;--magenta:#F2459A;--purple:#A56CC3;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:.98;letter-spacing:.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,6vw,52px)}
+h3{font-size:clamp(28px,4.6vw,40px)}
+h4{font:600 12px/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+p{margin:0 0 12px;max-width:70ch}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.kicker{font:600 12.5px/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);margin:0 0 10px}
+section{padding-block:56px}
+.stack{display:grid;gap:22px}
+
+/* hero */
+.hero{background:var(--cream);padding-block:40px 52px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.logo{position:relative;width:132px;height:132px;flex:none}
+.logo::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:var(--ring);filter:blur(18px);opacity:.45;animation:spin 40s linear infinite}
+.logo img{position:relative;width:100%;height:100%;border-radius:50%;display:block}
+.hero h1{font-size:clamp(52px,10vw,104px)}
+.hero p{color:var(--ink2);font-size:17px;margin:10px 0 0}
+.hero .meta{font:600 12.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+@media (max-width:620px){.hero .wrap{grid-template-columns:1fr}.logo{width:104px;height:104px}}
+
+/* topic colours */
+.t-a{--c:var(--orange)} .t-b{--c:var(--magenta)} .t-c{--c:var(--blue)} .t-d{--c:var(--teal)}
+
+/* at a glance */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.tile{position:relative;display:grid;gap:8px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--c);padding:18px;text-decoration:none;color:var(--ink);transition:transform .2s ease,box-shadow .2s ease;min-width:0}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px -14px color-mix(in srgb,var(--c) 70%,transparent)}
+.tile .l{font:600 13px var(--f-mono);color:var(--c);letter-spacing:.1em}
+.tile b{font:400 25px/1 var(--f-display);letter-spacing:.02em}
+.tile .stat{font:600 13px/1.4 var(--f-mono);color:var(--ink2)}
+.tile .gap{font-size:14px;color:var(--ink2)}
+.badge{justify-self:start;font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;background:var(--c);color:var(--on-color)}
+.badge.ghost{background:transparent;color:var(--mute);border:1px solid var(--line)}
+
+/* how */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.how div{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;min-width:0}
+.dot{width:40px;height:40px;border-radius:50%;background:var(--c);opacity:.9}
+.how b{display:block;font:400 22px/1 var(--f-display);letter-spacing:.03em;margin-bottom:4px}
+.how p{font-size:15px;color:var(--ink2);margin:0}
+.steps{display:flex;flex-wrap:wrap;gap:0;margin:6px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;font:600 13px var(--f-mono);padding:8px 14px 8px 12px;background:var(--cream);margin:0 4px 4px 0}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:11px;margin-right:8px}
+
+/* plan */
+.plan{background:var(--cream);padding-block:48px}
+.plan:nth-of-type(even){background:var(--bg)}
+.phead{display:grid;gap:10px;margin-bottom:22px}
+.phead .row1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.phead .big{font:400 72px/0.8 var(--f-display);color:var(--c)}
+.chip{font:600 12px/1 var(--f-mono);padding:6px 9px;border:1px solid var(--line);background:var(--surface);color:var(--ink2)}
+.phead .why{color:var(--ink2);font-size:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0;display:grid;gap:12px;align-content:start}
+.src{font:12px/1.5 var(--f-mono);color:var(--mute);overflow-wrap:anywhere}
+
+/* bars: label | track | value; width set inline as % of the chart's own max */
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(88px,34%) 1fr auto;gap:10px;align-items:center;font-size:13.5px}
+.bar .lb{color:var(--ink2);line-height:1.25;min-width:0}
+.bar .lb small{display:block;font:11.5px var(--f-mono);color:var(--mute)}
+.bar .tr{height:14px;background:var(--track);border-radius:7px;overflow:hidden;min-width:0}
+.bar .fl{height:100%;border-radius:7px;background:color-mix(in srgb,var(--c) 45%,var(--track));transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.bar .fl.hi{background:var(--c)}
+.bar .v{font:600 12.5px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink);text-align:right;min-width:3.2em}
+.pairlab{display:flex;gap:14px;flex-wrap:wrap;font:12px var(--f-mono);color:var(--mute)}
+.pairlab i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.stack100{display:flex;height:22px;border-radius:11px;overflow:hidden}
+.stack100 span{display:block;height:100%;animation:grow .9s cubic-bezier(.2,.7,.2,1) both;transform-origin:left}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font:12px/1.4 var(--f-mono);color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+
+/* competitor panel */
+.comp .bar{grid-template-columns:minmax(120px,42%) 1fr auto}
+.comp .bar .fl{background:color-mix(in srgb,var(--ink2) 35%,var(--track))}
+.tag{display:inline-block;font:600 10.5px/1 var(--f-mono);padding:3px 5px;margin-left:4px;border:1px solid var(--line);color:var(--mute);vertical-align:1px}
+.gaps{display:flex;flex-wrap:wrap;gap:6px}
+.gaps span{font:600 12px/1.3 var(--f-mono);padding:6px 9px;background:color-mix(in srgb,var(--c) 14%,var(--surface));color:var(--ink);border-left:3px solid var(--c)}
+.ours{display:flex;gap:10px;align-items:center;font-size:14px;padding:10px 12px;border:1.5px dashed var(--c)}
+.ours b{font:400 20px/1 var(--f-display);color:var(--c);letter-spacing:.03em;flex:none}
+
+
+/* similar videos */
+.similar{display:grid;gap:14px;margin-bottom:18px}
+.similar h4 span{text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:14px}
+.vid{display:grid;gap:6px;align-content:start;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:0 0 12px;min-width:0;transition:transform .2s ease,box-shadow .2s ease}
+.vid:hover{transform:translateY(-3px);box-shadow:0 12px 26px -14px color-mix(in srgb,var(--c) 70%,transparent)}
+.vid .th{position:relative;display:block;aspect-ratio:16/9;max-width:100%;background:var(--track);overflow:hidden}
+.vid .th img{width:100%;height:100%;object-fit:cover;display:block}
+.vid .th::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:30px;margin:-15px 0 0 -22px;border-radius:8px;background:rgba(0,0,0,.6);clip-path:none;opacity:.85}
+.vid .th::before{content:"";position:absolute;z-index:1;left:50%;top:50%;margin:-7px 0 0 -4px;border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #fff}
+.vid .views{position:absolute;right:6px;bottom:6px;font:600 11.5px/1 var(--f-mono);background:rgba(0,0,0,.78);color:#fff;padding:4px 6px}
+.vid .top{position:absolute;left:6px;top:6px;font:600 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--c);color:var(--on-color);padding:4px 6px}
+.vid .vt{font-weight:700;font-size:14.5px;line-height:1.3;padding-inline:12px}
+.vid .vm{font:12px/1.3 var(--f-mono);color:var(--mute);padding-inline:12px}
+.vid .lack{font-size:13.5px;line-height:1.4;color:var(--ink2);padding:8px 12px 0;margin-inline:12px 12px;padding-inline:0;border-top:1px dashed var(--line)}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.verdict p{margin:0;font-size:15px;padding:12px 14px;background:var(--surface);border-left:4px solid var(--line)}
+.verdict p.ours{border-left-color:var(--c);background:color-mix(in srgb,var(--c) 10%,var(--surface))}
+.verdict b{display:block;font:400 20px/1 var(--f-display);letter-spacing:.03em;margin-bottom:4px}
+.verdict p.ours b{color:var(--c)}
+
+/* run-sheet */
+.run{position:relative;display:grid;gap:0;padding-left:26px}
+.run::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--c),color-mix(in srgb,var(--c) 15%,transparent))}
+.step{position:relative;display:grid;grid-template-columns:54px 1fr;gap:10px;padding-block:10px}
+.step::before{content:"";position:absolute;left:-24px;top:15px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--c)}
+.step .t{font:600 12.5px/1.6 var(--f-mono);color:var(--c);font-variant-numeric:tabular-nums}
+.step b{display:block}
+.step p{margin:0;font-size:14.5px;color:var(--ink2)}
+.step .scr{display:inline-block;margin-top:5px;font:12px/1.45 var(--f-mono);color:var(--ink);background:color-mix(in srgb,var(--c) 12%,var(--surface));padding:4px 7px}
+.step.cam .scr{background:var(--cream)}
+.card.need{align-self:start;border-top:4px solid var(--c)}
+.need ul{margin:0;padding-left:18px;font-size:14.5px}
+.need li{margin-bottom:5px}
+
+.ask{margin:0;padding-left:22px}
+.ask li{margin-bottom:8px}
+.foot{font:12.5px/1.6 var(--f-mono);color:var(--mute);padding-block:28px 44px}
+.foot a{color:var(--magenta)}
+
+/* light motion: everything is visible at rest; this only eases it in */
+.rise{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+.tiles .tile:nth-child(2){animation-delay:.06s}.tiles .tile:nth-child(3){animation-delay:.12s}.tiles .tile:nth-child(4){animation-delay:.18s}
+@keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+@media (max-width:480px){.bar,.comp .bar{grid-template-columns:96px 1fr auto;font-size:12.5px}.step{grid-template-columns:44px 1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><img src="logo.png" alt="The Marketing House Vietnam logo" width="132" height="132"></div>
+    <div>
+      <p class="meta">YouTube pilot · 23 October 2026</p>
+      <h1>Pilot video plans</h1>
+      <p>Four topics, each with a title, a length, the data on screen, what already exists on YouTube, and a minute-by-minute plan. Pick 2 for the pilot.</p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap stack">
+    <div><p class="kicker">At a glance</p><h2>Four videos to choose from</h2></div>
+    <div class="tiles">
+      <a class="tile t-a rise" href="#a"><span class="l">A</span><span class="badge">Suggested</span><b>9 Unwritten Rules That Quietly Kill Foreign Deals</b><span class="stat">~11 min · top rival 273k views</span><span class="gap">No rival shows data or a European business view.</span></a>
+      <a class="tile t-b rise" href="#b"><span class="l">B</span><span class="badge">Suggested</span><b>McDonald's: 37 Stores in 11 Years. Lotteria: 222.</b><span class="stat">~9 min · top rival 4.8M views (2018)</span><span class="gap">No English video compares the brands with 2025–26 data.</span></a>
+      <a class="tile t-c rise" href="#c"><span class="l">C</span><span class="badge ghost">Video 3</span><b>Vietnam Says 3 Days. The World Bank Measured 66.</b><span class="stat">~8 min · top rival 117k views</span><span class="gap">All top 15 rivals predate the March 2026 law.</span></a>
+      <a class="tile t-d rise" href="#d"><span class="l">D</span><span class="badge ghost">Mid-January</span><b>Tết: The Month Vietnam Stops Working</b><span class="stat">~9 min · top business rival 31k</span><span class="gap">16 of the top 20 Tết videos are travel vlogs.</span></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap stack">
+    <div><p class="kicker">Every video</p><h2>How each one is built</h2></div>
+    <div class="how">
+      <div class="t-a"><span class="dot"></span><span><b>You open and close</b><p>About 30 seconds on camera at the start and the end, on your phone, like your current videos.</p></span></div>
+      <div class="t-b"><span class="dot"></span><span><b>Your voice</b><p>You read the approved script on your phone in a quiet room, about 20–30 minutes.</p></span></div>
+      <div class="t-c"><span class="dot"></span><span><b>Charts with sources</b><p>Plain charts and maps when a number matters, with the source on screen.</p></span></div>
+      <div class="t-d"><span class="dot"></span><span><b>Your team's clips</b><p>Phone clips from real life in Vietnam: horizontal, 10–20 seconds each.</p></span></div>
+    </div>
+    <ol class="steps" aria-label="Process"><li>You pick 2</li><li>Outline OK</li><li>Script OK</li><li>You record</li><li>Video in ~1 week</li><li>Up to 2 revision rounds</li></ol>
+  </div>
+</section>
+
+<!-- ============ A ============ -->
+<section class="plan t-a" id="a">
+  <div class="wrap">
+    <div class="phead">
+      <div class="row1"><span class="big">A</span><span class="badge">Suggested for pilot</span><span class="chip">~11 min</span><span class="chip">Your best-performing subject</span></div>
+      <h3>9 Unwritten Rules in Vietnam That Quietly Kill Foreign Deals</h3>
+    </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=eFU2TOGQuG8" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/eFU2TOGQuG8/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">913k views</span><span class="top">Most viewed</span></span><span class="vt">Why Japanese Hate Working with Foreigners</span><span class="vm">Paolo fromTOKYO · 2023 · 14 min</span><span class="lack">Same idea, but for Japan: 9 “don’ts” from an insider. Proof this format can go big.</span></a><a class="vid" href="https://www.youtube.com/watch?v=IgoxsaXzXHs" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/IgoxsaXzXHs/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">274k views</span></span><span class="vt">12 Things That Shock Foreigners in Vietnam After the First Month</span><span class="vm">Vietnam Visabox · 2026 · 18 min</span><span class="lack">A list for new expats. Daily life, no business angle, no data.</span></a><a class="vid" href="https://www.youtube.com/watch?v=2Q18LaHAkNo" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/2Q18LaHAkNo/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">151k views</span></span><span class="vt">Q&amp;A: Vietnamese Culture 101</span><span class="vm">What The Pho · 2021 · 12 min</span><span class="lack">Couple vlog about tipping, drinking and shoes. Tourist level.</span></a><a class="vid" href="https://www.youtube.com/watch?v=w68Tf-uT4pg" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/w68Tf-uT4pg/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">137k views</span></span><span class="vt">9 WEIRD Rules OK in Vietnamese Culture, Totally WRONG in America</span><span class="vm">Duong Global Business · 2025 · 16 min</span><span class="lack">A US lawyer tells a story per rule. No numbers, no sources.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Winners run 11–18 min and use “N things / N rules” titles. None show data, none speak to companies.</p><p class="ours"><b>Our video</b>9 rules a foreign company actually pays for, with the numbers, from a Belgian on the ground.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4>Data on screen</h4>
+        <div class="pairlab"><span><i style="background:var(--c)"></i>Belgium</span><span><i style="background:color-mix(in srgb,var(--c) 45%,var(--track))"></i>Vietnam</span><span>Hofstede, 0–100</span></div>
+        <div class="bars" role="img" aria-label="Hofstede: uncertainty avoidance Belgium 94 Vietnam 30; individualism Belgium 81 Vietnam 30; power distance Belgium 65 Vietnam 70">
+          <div class="bar"><span class="lb">Rules followed strictly</span><span class="tr"><span class="fl hi" style="width:94%;display:block"></span></span><span class="v">94</span></div>
+          <div class="bar"><span class="lb"><small>Vietnam</small></span><span class="tr"><span class="fl" style="width:30%;display:block"></span></span><span class="v">30</span></div>
+          <div class="bar"><span class="lb">Individualism</span><span class="tr"><span class="fl hi" style="width:81%;display:block"></span></span><span class="v">81</span></div>
+          <div class="bar"><span class="lb"><small>Vietnam</small></span><span class="tr"><span class="fl" style="width:30%;display:block"></span></span><span class="v">30</span></div>
+          <div class="bar"><span class="lb">Power distance</span><span class="tr"><span class="fl hi" style="width:65%;display:block"></span></span><span class="v">65</span></div>
+          <div class="bar"><span class="lb"><small>Vietnam</small></span><span class="tr"><span class="fl" style="width:70%;display:block"></span></span><span class="v">70</span></div>
+        </div>
+        <div class="src">The Culture Factor (Hofstede) country comparison</div>
+        <div class="bars" role="img" aria-label="EuroCham Q2 2026: regulatory delays 53%, talent shortage 38%, admin procedures delay projects 33%">
+          <div class="bar"><span class="lb">Regulatory delays</span><span class="tr"><span class="fl hi" style="width:53%;display:block"></span></span><span class="v">53%</span></div>
+          <div class="bar"><span class="lb">Talent shortage</span><span class="tr"><span class="fl" style="width:38%;display:block"></span></span><span class="v">38%</span></div>
+          <div class="bar"><span class="lb">Admin delays projects</span><span class="tr"><span class="fl" style="width:33%;display:block"></span></span><span class="v">33%</span></div>
+        </div>
+        <div class="src">European firms in Vietnam, EuroCham Business Confidence Index Q2 2026</div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h4>Minute by minute</h4>
+        <div class="run">
+          <div class="step cam"><span class="t">0:00</span><div><b>Cold open: the deal that died</b><p>You on camera: one real story of a client who broke a rule nobody told them about.</p></div></div>
+          <div class="step"><span class="t">0:45</span><div><b>Why nobody tells you</b><p>Two cultures far apart on rules.</p><span class="scr">Hofstede chart · 94 vs 30</span></div></div>
+          <div class="step"><span class="t">2:00</span><div><b>Rules 1–3 · In the meeting</b><p>The “yes” that means maybe. Who really decides. Never correct someone in front of others.</p><span class="scr">9% of staff engaged (Gallup 2026) · turnover at multinationals 6.6% (Mercer 2025)</span></div></div>
+          <div class="step"><span class="t">4:30</span><div><b>Rules 4–6 · Paperwork and officials</b><p>Rules bend, timelines slip, relationships move files.</p><span class="scr">EuroCham chart · 53% regulatory delays</span></div></div>
+          <div class="step"><span class="t">7:00</span><div><b>Rules 7–9 · People, dinners, Tết</b><p>Relationships before contracts. The business dinner. The Tết bonus.</p><span class="scr">Tết bonus 2026 · foreign-invested firms 9.21m VND</span></div></div>
+          <div class="step"><span class="t">9:30</span><div><b>The 90-day checklist</b><p>All 9 rules on one screen.</p></div></div>
+          <div class="step cam"><span class="t">10:15</span><div><b>Close</b><p>You on camera: what you tell every new client, and how to reach you.</p></div></div>
+        </div>
+      </div>
+      <div class="card need">
+        <h4>We need from you</h4>
+        <ul>
+          <li>The real story for the cold open (no names)</li>
+          <li>Your OK on the 9 rules. I'll propose a list, you change it.</li>
+          <li>Clips: an office meeting, a team lunch or dinner, Tết gifts, a government office from outside</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B ============ -->
+<section class="plan t-b" id="b">
+  <div class="wrap">
+    <div class="phead">
+      <div class="row1"><span class="big">B</span><span class="badge">Suggested for pilot</span><span class="chip">~9 min</span><span class="chip">Closest to your work as a marketer</span></div>
+      <h3>McDonald's: 37 Stores in 11 Years. Lotteria: 222.</h3>
+    </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=l9pthhpd7So" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/l9pthhpd7So/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">4.8M views</span><span class="top">Most viewed</span></span><span class="vt">Why McDonald’s Flopped In Vietnam</span><span class="vm">CNBC · 2018 · 6 min</span><span class="lack">Good news-style explainer, but the numbers are from 2018 (17 stores).</span></a><a class="vid" href="https://www.youtube.com/watch?v=llwyY4BDbfc" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/llwyY4BDbfc/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.4M views</span></span><span class="vt">Why Starbucks Struggles In Vietnam’s $1B Coffee Market</span><span class="vm">CNBC · 2020 · 11 min</span><span class="lack">Same style, one brand only, data from 2020.</span></a><a class="vid" href="https://www.youtube.com/watch?v=fZnKWY9sJ-4" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/fZnKWY9sJ-4/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.1M views</span></span><span class="vt">Why STARBUCKS FAILED in VIETNAM?!</span><span class="vm">Dustin Cheverier · 2023 · 11 min</span><span class="lack">Expat opinion. Starbucks did not fail: it now has 150 stores.</span></a><a class="vid" href="https://www.youtube.com/watch?v=D0QTOoLHUjs" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/D0QTOoLHUjs/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">1.0M views</span></span><span class="vt">Tại sao McDonald’s chưa bùng nổ tại Việt Nam</span><span class="vm">Lóng · 2026 · 16 min</span><span class="lack">Strong and recent, but in Vietnamese only.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Big demand: these topics have 14.4M views. But the English videos are from 2018–2023 and cover one brand each.</p><p class="ours"><b>Our video</b>All brands on one scoreboard with 2025–26 numbers, and what a marketer in Vietnam sees.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4>Data on screen</h4>
+        <div class="bars" role="img" aria-label="Fast-food outlets May 2025: Lotteria 222, Jollibee 213, KFC 172, Pizza Hut 118, McDonald's 37">
+          <div class="bar"><span class="lb">Lotteria <small>Korea</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">222</span></div>
+          <div class="bar"><span class="lb">Jollibee <small>Philippines</small></span><span class="tr"><span class="fl" style="width:95.9%;display:block"></span></span><span class="v">213</span></div>
+          <div class="bar"><span class="lb">KFC</span><span class="tr"><span class="fl" style="width:77.5%;display:block"></span></span><span class="v">172</span></div>
+          <div class="bar"><span class="lb">Pizza Hut</span><span class="tr"><span class="fl" style="width:53.2%;display:block"></span></span><span class="v">118</span></div>
+          <div class="bar"><span class="lb">McDonald's</span><span class="tr"><span class="fl hi" style="width:16.7%;display:block"></span></span><span class="v">37</span></div>
+        </div>
+        <div class="src">Fast-food outlets in Vietnam, May 2025 (Q&amp;Me via The Investor)</div>
+        <div class="bars" role="img" aria-label="Coffee chain stores end 2025: Highlands 985, Starbucks 150">
+          <div class="bar"><span class="lb">Highlands</span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">985</span></div>
+          <div class="bar"><span class="lb">Starbucks</span><span class="tr"><span class="fl hi" style="width:15.2%;display:block"></span></span><span class="v">150</span></div>
+        </div>
+        <div class="src">Coffee stores end-2025 (Tuổi Trẻ) · Starbucks ≈ 2% of a ~$1.2 bn market (Euromonitor)</div>
+        <div class="stack100" role="img" aria-label="E-commerce share Q3 2025: Shopee 56%, TikTok Shop 41%, Lazada 3%"><span style="width:56%;background:var(--c)"></span><span style="width:41%;background:color-mix(in srgb,var(--c) 45%,var(--track))"></span><span style="width:3%;background:var(--ink2)"></span></div>
+        <div class="legend"><span><i style="background:var(--c)"></i>Shopee 56%</span><span><i style="background:color-mix(in srgb,var(--c) 45%,var(--track))"></i>TikTok Shop 41%</span><span><i style="background:var(--ink2)"></i>Lazada 3%</span></div>
+        <div class="src">E-commerce sales share Q3 2025 (Metric)</div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h4>Minute by minute</h4>
+        <div class="run">
+          <div class="step cam"><span class="t">0:00</span><div><b>Cold open: two coffees</b><p>A street iced coffee for 15–20,000 dong next to a Starbucks Americano for about 60,000.</p></div></div>
+          <div class="step"><span class="t">0:40</span><div><b>The promise</b><p>McDonald's arrived in 2014 with plans for 100 stores.</p><span class="scr">McDonald's stores · 2015: 9 · 2018: 17 · 2025: 37–39</span></div></div>
+          <div class="step"><span class="t">2:00</span><div><b>The scoreboard</b><p>The fast-food winners are Asian.</p><span class="scr">Lotteria 222 · Jollibee 213 · McDonald's 37 · Burger King down to 4 in HCMC</span></div></div>
+          <div class="step"><span class="t">3:30</span><div><b>Coffee</b><p>Starbucks grows, but stays small.</p><span class="scr">Highlands 985 · Starbucks 150</span></div></div>
+          <div class="step"><span class="t">5:00</span><div><b>The ones that left</b><p>Big Western names that sold or exited.</p><span class="scr">Metro 2016 · Big C 2016 · Uber 2018 · Auchan 2019 · Gojek 2024</span></div></div>
+          <div class="step"><span class="t">6:15</span><div><b>Who wins online</b><p>The platforms that localised.</p><span class="scr">Shopee 56% · TikTok Shop 41% · Lazada 3%</span></div></div>
+          <div class="step"><span class="t">7:15</span><div><b>3 lessons for smaller brands</b><p>Price, convenience, local taste, from your work as a marketer.</p></div></div>
+          <div class="step cam"><span class="t">8:30</span><div><b>Close</b><p>You on camera, and how to reach you.</p></div></div>
+        </div>
+      </div>
+      <div class="card need">
+        <h4>We need from you</h4>
+        <ul>
+          <li>Your 3 lessons, or a client example of a brand that adapted (or didn't)</li>
+          <li>Clips: a street coffee stall, a Highlands, a Starbucks, a McDonald's and a Lotteria from outside, motorbike takeaway</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C ============ -->
+<section class="plan t-c" id="c">
+  <div class="wrap">
+    <div class="phead">
+      <div class="row1"><span class="big">C</span><span class="badge ghost">Video 3</span><span class="chip">~8 min</span><span class="chip">Needs a lawyer's check</span></div>
+      <h3>Vietnam Says 3 Days. The World Bank Measured 66.</h3>
+    </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=xTPYCWfp314" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/xTPYCWfp314/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">117k views</span><span class="top">Most viewed</span></span><span class="vt">Set up Company in Vietnam – Easy Step guide</span><span class="vm">LHD Law Firm · 2025 · 4 min</span><span class="lack">A law-firm ad: slides and voice-over, no real times or costs.</span></a><a class="vid" href="https://www.youtube.com/watch?v=wQiar2t-Nxg" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/wQiar2t-Nxg/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">89k views</span></span><span class="vt">Establish Your Business in Vietnam: A–Z Guide</span><span class="vm">LTS Law Firm · 2025 · 4 min</span><span class="lack">A step list under the old rules (before March 2026).</span></a><a class="vid" href="https://www.youtube.com/watch?v=Yv7DdQ8ZRM4" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/Yv7DdQ8ZRM4/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">40k views</span></span><span class="vt">HOW to Open a Business in Vietnam</span><span class="vm">Duong Global Business · 2020 · 12 min</span><span class="lack">Talking head, made in 2020.</span></a><a class="vid" href="https://www.youtube.com/watch?v=XocarTOqI3s" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/XocarTOqI3s/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">30k views</span></span><span class="vt">DO NOT Open A Business in Vietnam This Year (2023)</span><span class="vm">Duong Global Business · 2023 · 13 min</span><span class="lack">Opinion piece on 2023 conditions.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>Mostly law firms selling their service. All 15 most-viewed videos were made before the March 2026 law.</p><p class="ours"><b>Our video</b>The 2026 rules, the measured 66 days, and the full first-year bill.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4>Data on screen</h4>
+        <div class="bars" role="img" aria-label="Days to register a firm: legal deadline 3, Vietnamese firm 28, foreign firm 66">
+          <div class="bar"><span class="lb">Legal deadline <small>working days</small></span><span class="tr"><span class="fl" style="width:4.5%;display:block"></span></span><span class="v">3</span></div>
+          <div class="bar"><span class="lb">Vietnamese firm</span><span class="tr"><span class="fl" style="width:42.4%;display:block"></span></span><span class="v">28</span></div>
+          <div class="bar"><span class="lb">Foreign firm</span><span class="tr"><span class="fl hi" style="width:100%;display:block"></span></span><span class="v">66 days</span></div>
+        </div>
+        <div class="src">World Bank B-READY 2025, Viet Nam profile</div>
+        <div class="stack100" role="img" aria-label="Year-1 cost estimate about 25,000 USD: office 6,504, payroll 5,956, setup 4,712, director insurance 4,428, accounting 2,538, audit 865">
+          <span style="width:26%;background:var(--c)"></span><span style="width:23.8%;background:color-mix(in srgb,var(--c) 70%,var(--track))"></span><span style="width:18.8%;background:color-mix(in srgb,var(--c) 50%,var(--track))"></span><span style="width:17.7%;background:var(--purple)"></span><span style="width:10.2%;background:var(--teal)"></span><span style="width:3.5%;background:var(--ink2)"></span>
+        </div>
+        <div class="legend"><span><i style="background:var(--c)"></i>Office $6.5k</span><span><i style="background:color-mix(in srgb,var(--c) 70%,var(--track))"></i>2 staff $6.0k</span><span><i style="background:color-mix(in srgb,var(--c) 50%,var(--track))"></i>Setup services $4.7k</span><span><i style="background:var(--purple)"></i>Director insurance $4.4k</span><span><i style="background:var(--teal)"></i>Accounting $2.5k</span><span><i style="background:var(--ink2)"></i>Audit $0.9k</span></div>
+        <div class="src">Year-1 estimate ≈ $25k, small service company in HCMC (mid case, assumptions shown in the video). Government fees: about $3.</div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h4>Minute by minute</h4>
+        <div class="run">
+          <div class="step cam"><span class="t">0:00</span><div><b>Cold open</b><p>You on camera: the law says 3 working days.</p><span class="scr">3 · 28 · 66 days</span></div></div>
+          <div class="step"><span class="t">0:50</span><div><b>The rules changed in 2026</b><p>Since 1 March 2026: register the company first, investment certificate within 12 months. Licence tax abolished on 1 January 2026.</p></div></div>
+          <div class="step"><span class="t">2:15</span><div><b>The steps, in order</b><p>From investment certificate to bank account, with the official time for each step.</p></div></div>
+          <div class="step"><span class="t">3:45</span><div><b>The real first-year bill</b><p>Government fees are almost nothing. Services, office and payroll are not.</p><span class="scr">~$15k before payroll · ~$25k with 2 local staff</span></div></div>
+          <div class="step"><span class="t">5:30</span><div><b>Every month after</b><p>What keeps costing money.</p><span class="scr">Profit tax 20% · employer insurance 21.5% · minimum wage Region I 5.31m VND</span></div></div>
+          <div class="step"><span class="t">6:30</span><div><b>You're not alone</b><p>Foreign investment keeps coming.</p><span class="scr">FDI 2025 $38.4 bn · Belgium: 100 projects, $1.08 bn</span></div></div>
+          <div class="step cam"><span class="t">7:30</span><div><b>Close</b><p>You on camera: what you wish you'd known.</p></div></div>
+        </div>
+      </div>
+      <div class="card need">
+        <h4>We need from you</h4>
+        <ul>
+          <li>Your own setup story: how long it really took</li>
+          <li>A lawyer you trust to check the steps (a short quote from them on camera would help)</li>
+          <li>Clips: your office, signing documents, a bank, a government office from outside</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ D ============ -->
+<section class="plan t-d" id="d">
+  <div class="wrap">
+    <div class="phead">
+      <div class="row1"><span class="big">D</span><span class="badge ghost">Publish ~20 Jan 2027</span><span class="chip">~9 min</span><span class="chip">Tết 2027 starts 6 Feb</span></div>
+      <h3>Tết: The Month Vietnam Stops Working (The Numbers)</h3>
+    </div>
+    <div class="similar">
+      <h4>Similar videos already on YouTube <span>· tap to watch</span></h4>
+      <div class="vids"><a class="vid" href="https://www.youtube.com/watch?v=6HF_kVBdgog" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/6HF_kVBdgog/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">224k views</span><span class="top">Most viewed</span></span><span class="vt">Celebrating Tet in Vietnam for the First Time!</span><span class="vm">Mike and Ashley · 2024 · 15 min</span><span class="lack">Travel vlog: food, family, fireworks.</span></a><a class="vid" href="https://www.youtube.com/watch?v=iQbdZMTX4ds" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/iQbdZMTX4ds/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">222k views</span></span><span class="vt">How Do Vietnamese People Celebrate the Lunar New Year (Tet)?</span><span class="vm">What The Pho · 2021 · 17 min</span><span class="lack">How families celebrate. Culture, not business.</span></a><a class="vid" href="https://www.youtube.com/watch?v=MGL77m8fPjY" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/MGL77m8fPjY/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">167k views</span></span><span class="vt">Kinh doanh mùa Tết</span><span class="vm">VTV24 · 2022 · 7 min</span><span class="lack">Vietnamese TV news, not made for foreigners.</span></a><a class="vid" href="https://www.youtube.com/watch?v=oj3bTtC5E-U" target="_blank" rel="noopener"><span class="th"><img src="https://i.ytimg.com/vi/oj3bTtC5E-U/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="views">31k views</span></span><span class="vt">Tet in Vietnam: The Survival Guide Nobody Gives You</span><span class="vm">Duong Global Business · 2026 · 15 min</span><span class="lack">The closest to business, but mostly visa and travel tips. No data.</span></a></div>
+      <div class="verdict"><p><b>What we see</b>16 of the top 20 Tết videos are travel vlogs. 91% of views go to videos posted in January–February.</p><p class="ours"><b>Our video</b>What Tết does to orders, staff and money, plus a week-by-week plan for 2027.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4>Data on screen</h4>
+        <div class="bars" role="img" aria-label="Exports February 2026: first half about 20.3 billion USD, second half 10.27 billion USD">
+          <div class="bar"><span class="lb">Exports 1–15 Feb <small>billion USD</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">~20.3</span></div>
+          <div class="bar"><span class="lb">16–28 Feb (Tết)</span><span class="tr"><span class="fl hi" style="width:50.6%;display:block"></span></span><span class="v">10.27</span></div>
+        </div>
+        <div class="src">Vietnam customs, Feb 2026: −49.5% in the Tết half (first half derived)</div>
+        <div class="bars" role="img" aria-label="Tết bonus 2026: state firms 9.44, foreign-invested 9.21, private 7.37 million VND">
+          <div class="bar"><span class="lb">Bonus · state firms <small>million VND</small></span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">9.44</span></div>
+          <div class="bar"><span class="lb">Foreign-invested</span><span class="tr"><span class="fl hi" style="width:97.6%;display:block"></span></span><span class="v">9.21</span></div>
+          <div class="bar"><span class="lb">Private</span><span class="tr"><span class="fl" style="width:78.1%;display:block"></span></span><span class="v">7.37</span></div>
+        </div>
+        <div class="src">Tết bonus 2026, Ministry of Home Affairs</div>
+        <div class="bars" role="img" aria-label="Official Tết holiday: 2025 9 days, 2026 9 days, 2027 7 days">
+          <div class="bar"><span class="lb">Holiday 2025</span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">9 d</span></div>
+          <div class="bar"><span class="lb">2026</span><span class="tr"><span class="fl" style="width:100%;display:block"></span></span><span class="v">9 d</span></div>
+          <div class="bar"><span class="lb">2027 <small>4–10 Feb</small></span><span class="tr"><span class="fl hi" style="width:77.8%;display:block"></span></span><span class="v">7 d</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h4>Minute by minute</h4>
+        <div class="run">
+          <div class="step cam"><span class="t">0:00</span><div><b>Cold open: half a month vanished</b><p>You on camera, then the export chart.</p><span class="scr">~20.3 → 10.27 bn USD</span></div></div>
+          <div class="step"><span class="t">0:50</span><div><b>How long Vietnam stops</b><p>5 days by law, 7–9 in practice.</p><span class="scr">2027: 4–10 Feb</span></div></div>
+          <div class="step"><span class="t">2:00</span><div><b>Factories</b><p>Some close for a week or more, some big ones run through.</p></div></div>
+          <div class="step"><span class="t">3:15</span><div><b>The money</b><p>The Tết bonus your staff and suppliers expect.</p><span class="scr">Foreign-invested 9.21m VND</span></div></div>
+          <div class="step"><span class="t">4:30</span><div><b>After Tết</b><p>Not everyone comes back, and hiring heats up.</p><span class="scr">~95% back in HCMC by 25 Feb 2026 · 59,481 open jobs</span></div></div>
+          <div class="step"><span class="t">5:45</span><div><b>Your Tết 2027 calendar</b><p>When to order, when to tell staff, when to expect delays.</p><span class="scr">mid-Dec order early · by 5 Jan holiday notice · 21 Jan–3 Feb rush · 4–10 Feb closed</span></div></div>
+          <div class="step cam"><span class="t">8:15</span><div><b>Close</b><p>You on camera wishing viewers a happy Tết, and how to reach you.</p></div></div>
+        </div>
+      </div>
+      <div class="card need">
+        <h4>We need from you</h4>
+        <ul>
+          <li>What happens at Marketing House around Tết (bonus, gifts, closing days)</li>
+          <li>Clips: Tết decorations at the office, gift baskets, empty streets during Tết (a previous year is fine)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack">
+    <div><p class="kicker">Next</p><h2>What I need from you</h2></div>
+    <ol class="ask">
+      <li>Your pick of 2 topics. My suggestion is A + B. C works well as video 3 after a lawyer's check, and D has to go out in January.</li>
+      <li>The items under “We need from you” for the 2 you pick.</li>
+      <li>A shared Google Drive folder for your team's clips.</li>
+      <li>YouTube Studio access for me (Editor role). I upload drafts, you publish.</li>
+    </ol>
+    <p>Every number above has a source, and all of them are checked again before the script is final.</p>
+  </div>
+</section>
+
+<footer class="wrap foot">Prepared by Vuong for The Marketing House Vietnam · 23 October 2026 · <a href="sources.html">Research files and sources</a></footer>
+</body>
+</html>
