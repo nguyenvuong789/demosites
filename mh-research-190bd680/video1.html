@@ -7,16 +7,18 @@
 <title>Video 1: 9 Unwritten Rules</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Roboto:wght@400;500;700&display=swap">
 <style>
+@font-face{font-family:"Coolvetica Condensed";src:url("coolvetica-condensed-rg.ttf") format("truetype");font-display:swap}
 /* Layout: one short column for a busy reader; logo hero, 9 numbered rule cards with an answer box each, one copy button */
 :root{
   --cream:#FCEEEE;--bg:#ffffff;--surface:#ffffff;--ink:#1d1b20;--ink2:#4a4750;--mute:#75727b;--line:#f1dede;
   --orange:#F7931E;--yellow:#F4D21F;--lime:#9CC93A;--teal:#22AFAB;--blue:#3F9BE0;--magenta:#E0177B;--purple:#7B3F98;--on-color:#ffffff;color-scheme:light;
-  --f-display:"Bebas Neue",Oswald,"Arial Narrow",sans-serif;--f-body:Roboto,-apple-system,system-ui,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",Consolas,ui-monospace,monospace;
+  --f-display:"Coolvetica Condensed","Arial Narrow",sans-serif;--f-body:Roboto,-apple-system,system-ui,"Segoe UI",sans-serif;--f-mono:Consolas,Inconsolata,ui-monospace,monospace;
   --ring:conic-gradient(from 200deg,var(--magenta),var(--orange),var(--yellow),var(--lime),var(--teal),var(--blue),var(--purple),var(--magenta));
 }
 *{box-sizing:border-box}
+h1,h2,.big,.n,.st b,.cta,.send button,.rule .n{text-transform:uppercase}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
 .wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2{font-family:var(--f-display);font-weight:400;line-height:1;letter-spacing:.02em;text-wrap:balance;margin:0}
@@ -44,14 +46,14 @@ main{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding-block:28p
 .rule .n{font:400 40px/0.9 var(--f-display);color:var(--c)}
 .rule b{display:block;font-size:16.5px;line-height:1.35}
 .rule .cost{font-size:14px;color:var(--ink2);margin-top:2px}
-.rule .cost::before{content:"Cost: ";font:600 12px var(--f-mono);color:var(--c)}
+.rule .cost::before{content:"Cost: ";font:600 12px var(--f-mono);color:var(--ink)}
 .rule label{display:block;font:600 11.5px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:10px}
 .rule textarea{width:100%;min-height:44px;margin-top:4px;padding:8px 10px;font:15px/1.4 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);resize:vertical}
 .rule .keep{display:flex;gap:14px;margin-top:8px;font-size:14px;color:var(--ink2)}
-.r1{--c:var(--orange)}.r2{--c:var(--magenta)}.r3{--c:var(--blue)}.r4{--c:var(--teal)}.r5{--c:var(--lime)}.r6{--c:var(--purple)}.r7{--c:var(--orange)}.r8{--c:var(--magenta)}.r9{--c:var(--blue)}
+.r1{--c:var(--orange)}.r2{--c:var(--magenta)}.r3{--c:var(--blue)}.r4{--c:var(--teal)}.r5{--c:var(--purple)}.r6{--c:var(--teal)}.r7{--c:var(--orange)}.r8{--c:var(--magenta)}.r9{--c:var(--blue)}
 
 .send{position:sticky;bottom:0;padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.send button{font:400 22px/1 var(--f-display);letter-spacing:.04em;padding:12px 22px;border:0;background:var(--magenta);color:var(--on-color);cursor:pointer}
+.send button{font:400 22px/1 var(--f-display);letter-spacing:.04em;padding:12px 22px;border:0;background:var(--magenta);color:var(--white);cursor:pointer}
 .send span{font-size:14px;color:var(--ink2)}
 #fallback{width:100%;min-height:120px;font:13px var(--f-mono)}
 .more{font-size:14px;color:var(--mute)}
