@@ -73,6 +73,7 @@ main{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding-block:28p
 .part textarea{width:100%;min-height:260px;padding:12px;font:16px/1.6 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);resize:vertical;field-sizing:content}
 .part textarea.changed{border-color:var(--magenta);box-shadow:0 0 0 1px var(--magenta)}
 .reset{justify-self:start;font:600 12px var(--f-mono);background:none;border:0;color:var(--mute);text-decoration:underline;cursor:pointer;padding:0}
+.dl{display:inline-block;padding:12px 18px;font:400 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em;color:var(--ink);background:var(--yellow);text-decoration:none}
 .q{display:grid;gap:6px;padding:16px;background:var(--cream)}
 .q label{font-weight:500}
 .q textarea{width:100%;min-height:52px;padding:8px 10px;font:15px/1.4 var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
@@ -89,6 +90,7 @@ main{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding-block:28p
 
 <main class="wrap">
   <p class="idea">This is what you'll read out loud, in 6 parts. Change any word so it sounds like you; your changes turn pink. The grey labels show what appears on screen. Every number has been checked against its source.</p>
+  <div class="send" style="position:static"><a class="dl" href="script.txt" download="9-invisible-rules-script.txt">Download the script (.txt)</a><span>Prefer Word? Download, edit, and send the file back in Messenger.</span></div>
   <section class="part" style="--c:var(--orange)">
   <div class="ph"><span class="n">1</span><div><b>Cold open: rule 1</b><small>0:00–1:00</small></div></div>
   <div class="cues"><span class="cue k-text">TEXT: Rule 1 · &quot;Yes&quot; often means &quot;I heard you&quot;, not &quot;I agree&quot;</span></div>
