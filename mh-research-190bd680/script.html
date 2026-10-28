@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Video 1 Script</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Roboto:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:"Coolvetica Condensed";src:url("coolvetica-condensed-rg.ttf") format("truetype");font-display:swap}
+/* Layout: one short column for a busy reader; logo hero, 9 numbered rule cards with an answer box each, one copy button */
+:root{
+  --cream:#FCEEEE;--bg:#ffffff;--surface:#ffffff;--ink:#1d1b20;--ink2:#4a4750;--mute:#75727b;--line:#f1dede;
+  --orange:#F7931E;--yellow:#F4D21F;--lime:#9CC93A;--teal:#22AFAB;--blue:#3F9BE0;--magenta:#E0177B;--purple:#7B3F98;--on-color:#ffffff;color-scheme:light;
+  --f-display:"Coolvetica Condensed","Arial Narrow",sans-serif;--f-body:Roboto,-apple-system,system-ui,"Segoe UI",sans-serif;--f-mono:Consolas,Inconsolata,ui-monospace,monospace;
+  --ring:conic-gradient(from 200deg,var(--magenta),var(--orange),var(--yellow),var(--lime),var(--teal),var(--blue),var(--purple),var(--magenta));
+}
+*{box-sizing:border-box}
+h1,h2,.big,.n,.st b,.cta,.send button,.rule .n{text-transform:uppercase}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--f-display);font-weight:400;line-height:1;letter-spacing:.02em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--magenta)}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+
+.hero{background:var(--cream);padding-block:28px 32px}
+.hero .wrap{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.logo{position:relative;width:88px;height:88px}
+.logo::before{content:"";position:absolute;inset:-10px;border-radius:50%;background:var(--ring);filter:blur(14px);opacity:.45;animation:spin 40s linear infinite}
+.logo img{position:relative;width:100%;height:100%;border-radius:50%;display:block}
+.meta{font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--magenta);margin-bottom:6px}
+.hero h1{font-size:clamp(34px,7vw,52px)}
+
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding-block:28px 40px}
+.idea{font-size:17px;padding:14px 16px;border-left:4px solid var(--orange);background:var(--cream)}
+.ask{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none;counter-reset:a}
+.ask li{counter-increment:a;font-size:14.5px;padding:8px 12px;background:var(--surface);border:1px solid var(--line)}
+.ask li::before{content:counter(a);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--magenta);color:var(--on-color);font:600 11px var(--f-mono);margin-right:8px}
+
+.rules{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.rule{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c);animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.rule>div{min-width:0}
+.rule .n{font:400 40px/0.9 var(--f-display);color:var(--c)}
+.rule b{display:block;font-size:16.5px;line-height:1.35}
+.rule .cost{font-size:14px;color:var(--ink2);margin-top:2px}
+.rule .cost::before{content:"Cost: ";font:600 12px var(--f-mono);color:var(--ink)}
+.rule label{display:block;font:600 11.5px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:10px}
+.rule textarea{width:100%;min-height:44px;margin-top:4px;padding:8px 10px;font:15px/1.4 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);resize:vertical}
+.rule .keep{display:flex;gap:14px;margin-top:8px;font-size:14px;color:var(--ink2)}
+.r1{--c:var(--orange)}.r2{--c:var(--magenta)}.r3{--c:var(--blue)}.r4{--c:var(--teal)}.r5{--c:var(--purple)}.r6{--c:var(--teal)}.r7{--c:var(--orange)}.r8{--c:var(--magenta)}.r9{--c:var(--blue)}
+
+.send{position:sticky;bottom:0;padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.send button{font:400 22px/1 var(--f-display);letter-spacing:.04em;padding:12px 22px;border:0;background:var(--magenta);color:var(--white);cursor:pointer}
+.send span{font-size:14px;color:var(--ink2)}
+#fallback{width:100%;min-height:120px;font:13px var(--f-mono)}
+.more{font-size:14px;color:var(--mute)}
+@keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important}}
+
+.part{display:grid;gap:10px;padding:16px;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c);min-width:0}
+.ph{display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:center}
+.ph .n{font:400 36px/1 var(--f-display);color:var(--c)}
+.ph b{display:block;font:400 24px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.ph small{font:12px var(--f-mono);color:var(--mute)}
+.cues{display:flex;flex-wrap:wrap;gap:6px}
+.cue{font:12.5px/1.4 var(--f-mono);padding:5px 8px;background:var(--cream);color:var(--ink2)}
+.cue.k-chart{border-left:3px solid var(--blue)} .cue.k-text{border-left:3px solid var(--orange)}
+.part label{font:600 11.5px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.part textarea{width:100%;min-height:260px;padding:12px;font:16px/1.6 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);resize:vertical;field-sizing:content}
+.part textarea.changed{border-color:var(--magenta);box-shadow:0 0 0 1px var(--magenta)}
+.reset{justify-self:start;font:600 12px var(--f-mono);background:none;border:0;color:var(--mute);text-decoration:underline;cursor:pointer;padding:0}
+.q{display:grid;gap:6px;padding:16px;background:var(--cream)}
+.q label{font-weight:500}
+.q textarea{width:100%;min-height:52px;padding:8px 10px;font:15px/1.4 var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><img src="logo.png" alt="The Marketing House Vietnam logo" width="88" height="88"></div>
+    <div><p class="meta">Video 1 · script · ~8–9 min</p><h1>9 Invisible Rules Directing Business in Vietnam</h1></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="idea">This is what you'll read out loud, in 6 parts. Change any word so it sounds like you; your changes turn pink. The grey labels show what appears on screen. Every number has been checked against its source.</p>
+  <section class="part" style="--c:var(--orange)">
+  <div class="ph"><span class="n">1</span><div><b>Cold open: rule 1</b><small>0:00–1:00</small></div></div>
+  <div class="cues"><span class="cue k-text">TEXT: Rule 1 · &quot;Có&quot; often means &quot;I heard you&quot;, not &quot;I agree&quot;</span></div>
+  <label for="p0">Your words (change anything)</label>
+  <textarea id="p0" data-orig="When a Vietnamese partner says &quot;có&quot;… do you think that means yes?
+
+In my first years in Vietnam, I did. And I was disappointed so many times.
+
+Because &quot;có&quot; has many meanings. Very often it doesn&#x27;t mean &quot;yes, I agree&quot;. It means: I understand. I&#x27;m open to this.
+
+So I left meetings thinking we had a deal. And then nothing happened, because for the other side there was never an agreement. That&#x27;s how I lost potential clients who were a perfect fit for my company, and people who would have been great on my team.
+
+Cost: lost clients, lost hires. So when you hear &quot;có&quot;, ask one more question: what&#x27;s the next step, and when?
+
+That&#x27;s rule one. And there are eight more that nobody writes down.">When a Vietnamese partner says &quot;có&quot;… do you think that means yes?
+
+In my first years in Vietnam, I did. And I was disappointed so many times.
+
+Because &quot;có&quot; has many meanings. Very often it doesn&#x27;t mean &quot;yes, I agree&quot;. It means: I understand. I&#x27;m open to this.
+
+So I left meetings thinking we had a deal. And then nothing happened, because for the other side there was never an agreement. That&#x27;s how I lost potential clients who were a perfect fit for my company, and people who would have been great on my team.
+
+Cost: lost clients, lost hires. So when you hear &quot;có&quot;, ask one more question: what&#x27;s the next step, and when?
+
+That&#x27;s rule one. And there are eight more that nobody writes down.</textarea>
+  <button type="button" class="reset" data-i="0">Undo my changes</button>
+</section><section class="part" style="--c:var(--magenta)">
+  <div class="ph"><span class="n">2</span><div><b>Welcome + why</b><small>1:00–1:30</small></div></div>
+  <div class="cues"><span class="cue k-chart">CHART: Hofstede · &quot;wanting clear rules&quot; (uncertainty avoidance) Belgium 94 · Vietnam 30 — &quot;I come first&quot; vs &quot;the group comes first&quot; (individualism) Belgium 81 · Vietnam 30. Source: The Culture Factor</span></div>
+  <label for="p1">Your words (change anything)</label>
+  <textarea id="p1" data-orig="Welcome to another video about what it&#x27;s like to do business in Vietnam from a Western perspective. My name is Mieke, and I&#x27;ve been living and working here for nine years.
+
+I&#x27;m from Belgium. We want clear rules, and the individual comes first. In Vietnam it&#x27;s almost the opposite: rules are flexible, and the group and the relationship come first. Not better, not worse. Just different. So let&#x27;s go.">Welcome to another video about what it&#x27;s like to do business in Vietnam from a Western perspective. My name is Mieke, and I&#x27;ve been living and working here for nine years.
+
+I&#x27;m from Belgium. We want clear rules, and the individual comes first. In Vietnam it&#x27;s almost the opposite: rules are flexible, and the group and the relationship come first. Not better, not worse. Just different. So let&#x27;s go.</textarea>
+  <button type="button" class="reset" data-i="1">Undo my changes</button>
+</section><section class="part" style="--c:var(--blue)">
+  <div class="ph"><span class="n">3</span><div><b>Rules 2–3: in the meeting</b><small>1:30–3:20</small></div></div>
+  <div class="cues"><span class="cue k-text">TEXT: Rule 2 · The real decision-maker is often not in the room</span><span class="cue k-text">TEXT: Rule 3 · Never correct someone in front of others</span></div>
+  <label for="p2">Your words (change anything)</label>
+  <textarea id="p2" data-orig="This happened to me many times, and to my Vietnamese staff too.
+
+Someone on the phone tells you: yes, this is my business. Yes, I make the decisions. Yes, I handle the money. And when it&#x27;s time to decide, they refer you to another person. Someone who was never in the conversation, never even mentioned.
+
+Cost: a lot of wasted time. So early on, ask in a friendly way: who else is part of this decision?
+
+And this is not only with staff. It&#x27;s with anyone.
+
+People here are scared to lose face. And, most importantly, they don&#x27;t want you to lose face either. Most of us Westerners don&#x27;t care about that. We just want to reach the goal as fast and efficiently as possible.
+
+Cost: in my first years, I definitely lost staff members because I didn&#x27;t know this. So give feedback one-on-one. Calm, and private.">This happened to me many times, and to my Vietnamese staff too.
+
+Someone on the phone tells you: yes, this is my business. Yes, I make the decisions. Yes, I handle the money. And when it&#x27;s time to decide, they refer you to another person. Someone who was never in the conversation, never even mentioned.
+
+Cost: a lot of wasted time. So early on, ask in a friendly way: who else is part of this decision?
+
+And this is not only with staff. It&#x27;s with anyone.
+
+People here are scared to lose face. And, most importantly, they don&#x27;t want you to lose face either. Most of us Westerners don&#x27;t care about that. We just want to reach the goal as fast and efficiently as possible.
+
+Cost: in my first years, I definitely lost staff members because I didn&#x27;t know this. So give feedback one-on-one. Calm, and private.</textarea>
+  <button type="button" class="reset" data-i="2">Undo my changes</button>
+</section><section class="part" style="--c:var(--teal)">
+  <div class="ph"><span class="n">4</span><div><b>Rules 4–6: relationships, contracts, paperwork</b><small>3:20–6:00</small></div></div>
+  <div class="cues"><span class="cue k-text">TEXT: Rule 4 · Relationship first, contract second</span><span class="cue k-text">TEXT: Rule 5 · Rules and timelines on paper bend in practice</span><span class="cue k-chart">CHART: EuroCham Business Confidence Index, Q2 2026: 53% of surveyed member companies named regulatory delays, policy inconsistency and tax administration as their biggest obstacles to long-term expansion</span><span class="cue k-text">TEXT: Rule 6 · The right introduction opens doors</span><span class="cue k-chart">CHART: first time · months, over USD 4,000 → next times · much less time and effort ⚠ waiting for Mieke&#x27;s OK</span></div>
+  <label for="p3">Your words (change anything)</label>
+  <textarea id="p3" data-orig="We see this all the time at The Marketing House. Vietnamese business owners reach out. They&#x27;re interested. And then: short messages, back and forth, back and forth.
+
+We like to work fast. Understand the problem, the goal, and explain how we can help. And everything about us is online: our work, our team, our clients, here on YouTube, on Facebook, on our website.
+
+But for many Vietnamese clients, that&#x27;s not enough. They want to meet for coffee and get to know you first.
+
+Cost: push too fast, and the conversation goes nowhere. So plan for the coffee. It&#x27;s where the deal really starts.
+
+We have contracts with everyone: suppliers, partners, employees, our landlord, our clients. Our accountant checks them, and when needed our law firm. And still, a signed contract is often not seen as something to commit to one hundred percent. So we explain, patiently: what&#x27;s on the paper, we all stick to.
+
+And it&#x27;s not only contracts. In EuroCham&#x27;s latest survey, 53 percent of the European companies asked named regulatory delays and unclear rules as their biggest obstacle to growing here.
+
+Cost: months of delay. So add buffer time to every plan.
+
+Paperwork is still a challenge, even though I&#x27;ve seen huge improvements in my nine years here.
+
+My own example: my work permit and residence card. The first time, it took months and months, and it cost over four thousand dollars.
+
+The next times, we knew which people to speak to, and it all took much less effort, time and money.
+
+Cost: months, and thousands of dollars. So before any paperwork, ask around: who has done this before?">We see this all the time at The Marketing House. Vietnamese business owners reach out. They&#x27;re interested. And then: short messages, back and forth, back and forth.
+
+We like to work fast. Understand the problem, the goal, and explain how we can help. And everything about us is online: our work, our team, our clients, here on YouTube, on Facebook, on our website.
+
+But for many Vietnamese clients, that&#x27;s not enough. They want to meet for coffee and get to know you first.
+
+Cost: push too fast, and the conversation goes nowhere. So plan for the coffee. It&#x27;s where the deal really starts.
+
+We have contracts with everyone: suppliers, partners, employees, our landlord, our clients. Our accountant checks them, and when needed our law firm. And still, a signed contract is often not seen as something to commit to one hundred percent. So we explain, patiently: what&#x27;s on the paper, we all stick to.
+
+And it&#x27;s not only contracts. In EuroCham&#x27;s latest survey, 53 percent of the European companies asked named regulatory delays and unclear rules as their biggest obstacle to growing here.
+
+Cost: months of delay. So add buffer time to every plan.
+
+Paperwork is still a challenge, even though I&#x27;ve seen huge improvements in my nine years here.
+
+My own example: my work permit and residence card. The first time, it took months and months, and it cost over four thousand dollars.
+
+The next times, we knew which people to speak to, and it all took much less effort, time and money.
+
+Cost: months, and thousands of dollars. So before any paperwork, ask around: who has done this before?</textarea>
+  <button type="button" class="reset" data-i="3">Undo my changes</button>
+</section><section class="part" style="--c:var(--purple)">
+  <div class="ph"><span class="n">5</span><div><b>Rules 7–9: dinners, Tết, titles</b><small>6:00–7:50</small></div></div>
+  <div class="cues"><span class="cue k-text">TEXT: Rule 7 · The business dinner is where trust is built</span><span class="cue k-text">TEXT: Rule 8 · The Tết bonus and gifts are expected, not a nice extra</span><span class="cue k-chart">CHART: Average Tết bonus 2026 — foreign-invested companies 9.21 million VND · all companies 8.69 million VND. Source: Ministry of Home Affairs</span><span class="cue k-text">TEXT: Rule 9 · Age and titles matter: who speaks first, who sits where</span></div>
+  <label for="p4">Your words (change anything)</label>
+  <textarea id="p4" data-orig="My Vietnamese friends tell me some business people bring a lot of beer to see how much the Western partner can drink. Their logic: if you&#x27;re still a good, decent, smart person with all that beer in you, you&#x27;ll be a good partner too. 🙂
+
+Cost: skip the dinner, and you skip the trust. You don&#x27;t have to drink like a champion. And if you drive, don&#x27;t drink: the law here is very strict.
+
+In 2026, foreign-invested companies paid an average Tết bonus of more than nine million dong per employee. I&#x27;ve always given a bonus, and very occasionally gifts. I hope I&#x27;m doing a good job there. I still have a lot to learn!
+
+Cost: get it wrong, and your team notices. So put it in your budget from January.
+
+Honestly, after all these years, this is still difficult for me. I don&#x27;t care at all who sits where or who speaks first. I just want everyone to feel comfortable. So in meetings, I let my Vietnamese partners lead the way, or my Vietnamese staff decide. Then I don&#x27;t have to worry about it. 🙂">My Vietnamese friends tell me some business people bring a lot of beer to see how much the Western partner can drink. Their logic: if you&#x27;re still a good, decent, smart person with all that beer in you, you&#x27;ll be a good partner too. 🙂
+
+Cost: skip the dinner, and you skip the trust. You don&#x27;t have to drink like a champion. And if you drive, don&#x27;t drink: the law here is very strict.
+
+In 2026, foreign-invested companies paid an average Tết bonus of more than nine million dong per employee. I&#x27;ve always given a bonus, and very occasionally gifts. I hope I&#x27;m doing a good job there. I still have a lot to learn!
+
+Cost: get it wrong, and your team notices. So put it in your budget from January.
+
+Honestly, after all these years, this is still difficult for me. I don&#x27;t care at all who sits where or who speaks first. I just want everyone to feel comfortable. So in meetings, I let my Vietnamese partners lead the way, or my Vietnamese staff decide. Then I don&#x27;t have to worry about it. 🙂</textarea>
+  <button type="button" class="reset" data-i="4">Undo my changes</button>
+</section><section class="part" style="--c:var(--orange)">
+  <div class="ph"><span class="n">6</span><div><b>Recap + close</b><small>7:50–8:40</small></div></div>
+  <div class="cues"><span class="cue k-text">TEXT: all 9 rules on one screen</span></div>
+  <label for="p5">Your words (change anything)</label>
+  <textarea id="p5" data-orig="So, nine invisible rules. You don&#x27;t need to become Vietnamese. I&#x27;m still very Belgian, believe me! But when you know them, you lose a lot less: fewer lost clients, fewer lost staff, fewer lost months.
+
+Which one did you learn the hard way? Tell me in the comments. And if you want help doing business in Vietnam, the link to The Marketing House is in the description.
+
+See you soon again to get more insights on doing business in Vietnam.">So, nine invisible rules. You don&#x27;t need to become Vietnamese. I&#x27;m still very Belgian, believe me! But when you know them, you lose a lot less: fewer lost clients, fewer lost staff, fewer lost months.
+
+Which one did you learn the hard way? Tell me in the comments. And if you want help doing business in Vietnam, the link to The Marketing House is in the description.
+
+See you soon again to get more insights on doing business in Vietnam.</textarea>
+  <button type="button" class="reset" data-i="5">Undo my changes</button>
+</section>
+  <div class="q">
+    <label for="q1">Rule 6: is it OK to show "over 4,000 USD" on screen?</label>
+    <textarea id="q1" placeholder="Yes / No"></textarea>
+    <label for="q2">Rule 6: what made the next times cheaper and faster? (an agency, a lawyer, a contact…)</label>
+    <textarea id="q2" placeholder="One sentence is enough"></textarea>
+    <label for="q3">Anything else?</label>
+    <textarea id="q3" placeholder="Optional"></textarea>
+  </div>
+  <div class="send">
+    <button type="button" id="copy">Copy my changes</button>
+    <span id="msg">Then paste them in Messenger to Vuong.</span>
+    <textarea id="fallback" hidden readonly></textarea>
+  </div>
+  <p class="more"><a href="video1.html">The 9 rules</a> · <a href="./">All topics</a> · <a href="sources.html">Sources</a></p>
+</main>
+
+<script>
+const parts=[...document.querySelectorAll('.part')];
+const tas=parts.map(p=>p.querySelector('textarea'));
+const qs=['q1','q2','q3'].map(id=>document.getElementById(id));
+const K='mh-v1-script-';
+const mark=t=>t.classList.toggle('changed',t.value.trim()!==t.dataset.orig.trim());
+tas.forEach((t,i)=>{try{const v=localStorage.getItem(K+i);if(v!==null)t.value=v}catch(e){}mark(t);
+  t.addEventListener('input',()=>{mark(t);try{localStorage.setItem(K+i,t.value)}catch(e){}})});
+qs.forEach(q=>{try{q.value=localStorage.getItem(K+q.id)||''}catch(e){}q.addEventListener('input',()=>{try{localStorage.setItem(K+q.id,q.value)}catch(e){}})});
+document.querySelectorAll('.reset').forEach(b=>b.addEventListener('click',()=>{const t=tas[+b.dataset.i];t.value=t.dataset.orig;mark(t);try{localStorage.removeItem(K+b.dataset.i)}catch(e){}}));
+function text(){
+  const out=['Video 1 script: my changes'];
+  let n=0;
+  tas.forEach((t,i)=>{if(t.value.trim()!==t.dataset.orig.trim()){n++;out.push('','PART '+(i+1)+': '+parts[i].querySelector('.ph b').textContent,t.value.trim())}});
+  if(!n) out.push('','No changes to the script.');
+  const lab=['Show 4,000 USD','What made it cheaper','Other'];
+  qs.forEach((q,i)=>{if(q.value.trim())out.push('',lab[i]+': '+q.value.trim())});
+  return out.join('\n');
+}
+document.getElementById('copy').addEventListener('click',()=>{
+  const t=text(),msg=document.getElementById('msg'),fb=document.getElementById('fallback');
+  const manual=()=>{fb.hidden=false;fb.value=t;fb.focus();fb.select();msg.textContent='Select all and copy this text.'};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>{msg.textContent='Copied. Now paste it in Messenger to Vuong.'},manual)}else manual();
+});
+</script>
+</body>
+</html>
